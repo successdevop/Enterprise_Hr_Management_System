@@ -1,0 +1,6 @@
+__pycahe__/
+*egg-info/
+.venv
+.env
+.idea
+.credentials/
