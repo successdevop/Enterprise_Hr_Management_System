@@ -12,10 +12,6 @@ class Person:
     def name(self):
         return self._name
 
-    @name.setter
-    def name(self, name):
-        self._name = Utils.validate_name(name)
-
     @property
     def email(self):
         return self._email
@@ -23,10 +19,6 @@ class Person:
     @property
     def age(self):
         return self._age
-
-    @age.setter
-    def age(self, age):
-        self._age = Utils.validate_age(age)
 
     @property
     def origin(self):

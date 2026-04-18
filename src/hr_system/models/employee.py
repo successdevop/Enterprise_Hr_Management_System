@@ -40,6 +40,9 @@ class Employee(Person):
     def deactivate(self):
         self._isActive = False
 
+    def __repr__(self):
+        return f"<Employee {self._emp_id} | {self.name} | {self._role.value}>"
+
 
 # class Manager(Employee):
 #     def __init__(self, name, email, age, emp_id, salary, origin):

@@ -1,5 +1,6 @@
 import random
 import re
+from datetime import datetime
 
 
 class Utils:
@@ -35,3 +36,7 @@ class Utils:
                 print("You must be at-least 18 years")
         else:
             print("Invalid age value")
+
+    @staticmethod
+    def logger(message: str):
+        print(f"[{datetime.now()}]: {message}")
