@@ -20,10 +20,6 @@ class Person:
     def email(self):
         return self._email
 
-    @email.setter
-    def email(self, email):
-        self._email = Utils.validate_email(email)
-
     @property
     def age(self):
         return self._age
@@ -36,6 +32,5 @@ class Person:
     def origin(self):
         return self._origin
 
-    @origin.setter
-    def origin(self, state_of_origin):
-        self._origin = Utils.validate_name(state_of_origin)
+    def __repr__(self):
+        return f"Person(name={self._name} | email={self._email} | age={self._age} | origin={self._origin})"
