@@ -1,26 +1,23 @@
 from ..models.employee import Employee
+from typing import Dict
 
 
 class EmployeeRepository:
     def __init__(self):
-        self._employees = []
+        self._employees: Dict[str, Employee] = {}
 
     def save_employee(self, employee: Employee):
-        self._employees.append(employee)
+        self._employees[employee.employee_id] = employee
 
     def get_by_id(self, emp_id: str) -> Employee | None:
-        for employee in self._employees:
-            if emp_id == employee.employee_id:
-                return employee
-        return None
+        return self._employees.get(emp_id)
 
-    def get_by_email(self, email):
-        employee = next((email == employee.email for employee in self._employees), None)
-        return employee
+    def get_by_email(self, email: str) -> Employee | None:
+        return next((email == emp.email for emp in self._employees.values()))
 
-    def get_all(self):
-        return self._employees
+    def get_all(self) -> list:
+        return list(self._employees)
 
-    def count(self):
+    def count(self) -> int:
         return len(self._employees)
 
