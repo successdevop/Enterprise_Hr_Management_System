@@ -1,6 +1,7 @@
 import uuid
-from person import Person
-from role import Role
+from src.hr_system.models.person import Person
+from src.hr_system.models.role import Role
+from src.hr_system.utils.utils import Utils
 
 
 class Employee(Person):
@@ -10,13 +11,13 @@ class Employee(Person):
         self._role = role
         self._salary = salary
         self._isActive = True
-        self.password = None
+        self._password = None
 
     def set_password(self, password):
-        self.password = password
+        self._password = password
 
     def check_password(self, password) -> bool:
-        return self.password == password
+        return self._password == password
 
     @property
     def employee_id(self):
@@ -28,10 +29,7 @@ class Employee(Person):
 
     @salary.setter
     def salary(self, salary):
-        if salary > 0:
-            self._salary = salary
-        else:
-            print("salary must be greater than zero")
+        self._salary = Utils.validate_amount_input(salary)
 
     @property
     def is_active(self):

@@ -1,12 +1,9 @@
-from ..utils.utils import Utils
-
-
 class Person:
     def __init__(self, name: str, email: str, age: int, state_of_origin: str):
-        self._name = Utils.validate_name(name)
-        self._email = Utils.validate_email(email)
-        self._age = Utils.validate_age(age)
-        self._origin = Utils.validate_name(state_of_origin)
+        self._name = name
+        self._email = email
+        self._age = age
+        self._origin = state_of_origin
 
     @property
     def name(self):
