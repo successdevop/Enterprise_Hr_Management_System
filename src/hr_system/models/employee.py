@@ -5,7 +5,7 @@ from src.hr_system.utils.utils import Utils
 
 
 class Employee(Person):
-    def __init__(self, name, email, age, origin, role: Role, salary: float):
+    def __init__(self, name: str, email, age, origin, role: Role, salary: float):
         super().__init__(name=name, email=email, age=age, state_of_origin=origin)
         self._emp_id = str(uuid.uuid4())
         self._role = role
@@ -39,7 +39,7 @@ class Employee(Person):
         self._isActive = False
 
     def __repr__(self):
-        return f"<Employee {self._emp_id} | {self.name} | {self._role.value}>"
+        return f"<Employee id: {self._emp_id} | name: {self.name} | role: {self._role.value} >"
 
 
 # class Manager(Employee):

@@ -16,7 +16,7 @@ class Utils:
     def validate_name(name: str) -> str | None:
         name = name.strip().title()
         if name and len(name) >= 3:
-            return name
+            return name.strip().capitalize()
         print("Name value cannot be empty and must be at-least 3 characters")
         return
 
@@ -25,7 +25,7 @@ class Utils:
         pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         if re.match(pattern, email):
             return email
-        print("Invalid email")
+        print("Invalid email format. Enter a correct email")
         return
 
     @staticmethod

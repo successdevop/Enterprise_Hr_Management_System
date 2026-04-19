@@ -8,21 +8,29 @@ def main():
     auth = AuthService(repo)
 
     employee_1 = auth.register(
-        "Success",
-        "success@.com", 16,
+        "Success raphael ifeanyi",
+        "SUCcess@gmail.com",
+        19,
         "imo state, Nigeria",
-        "Manage", 50000,
+        Role.ADMIN,
+        50000,
         "echezPay123@/.com"
     )
 
     employee_2 = auth.register(
         "Tobi",
-        "tobi@gmail.com", 25,
+        "TOBI@gmail.com", 25,
         "ogun state, Nigeria",
-        Role.EMPLOYEE.value,
+        Role.EMPLOYEE,
         4000,
         "tobiPass123@/.com"
     )
+
+    auth.login("SUCcess@gmail.com", "echezPay123@/.com")
+
+    auth.logout()
+
+    repo.get_all()
 
 
 main()

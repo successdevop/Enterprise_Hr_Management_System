@@ -10,14 +10,22 @@ class AuthService:
     def register(self, name, email, age, origin, role, salary, password):
         from src.hr_system.models.employee import Employee
 
-        Utils.validate_email(email)
+        email = email.lower().strip()
+        if not Utils.validate_email(email):
+            return
+
         if self._employee_repo.get_by_email(email):
             raise ValueError("User already exist")
 
         employee = Employee(name, email, age, origin, role, salary)
 
-        if len(password) >= 5:
-            employee.set_password(password)
+        if (not Utils.validate_name(name) or not Utils.validate_age(age)
+                or not Utils.validate_name(origin) or not Utils.validate_amount_input(salary)):
+            return
+
+        if len(password) < 8:
+            raise ValueError("Password must be at least 8 characters")
+        employee.set_password(password)
 
         self._employee_repo.save_employee(employee)
         Utils.logger(f"Registration Successful! ({email})")
