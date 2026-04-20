@@ -1,7 +1,8 @@
 from src.hr_system.repositories.employee_repo import EmployeeRepository
 from src.hr_system.utils.utils import Utils
-from src.hr_system.storage.json_operator import logger, save_to_jason_database
+from src.hr_system.storage.json_operator import logger
 from src.hr_system.storage.config import LOGS_FILE
+from src.hr_system.models.role import Role
 
 
 class AuthService:
@@ -9,7 +10,7 @@ class AuthService:
         self._employee_repo = employee_repo
         self._current_user = None
 
-    def register(self, name, email, age, origin, role, salary, password):
+    def register(self, name: str, email: str, age: int, origin: str, role: Role, salary: float, password: str):
         from src.hr_system.models.employee import Employee
 
         email = email.lower().strip()
@@ -31,7 +32,7 @@ class AuthService:
 
         self._employee_repo.save_employee(employee)
         logger(f"Congratulations!, registration successful {email}", LOGS_FILE)
-        Utils.logger(f"Registration Successful! ({email})")
+        print(f"Registration Successful! ({email})")
         return employee
 
     def login(self, email, password):
@@ -49,12 +50,12 @@ class AuthService:
 
         self._current_user = user
         logger(f"Login successful: {email}", LOGS_FILE)
-        Utils.logger(f"Login successful: {email}")
+        print(f"Login successful: {email}")
         return user
 
     def logout(self):
         if self._current_user:
             logger(f"User logged out: {self._current_user.email}", LOGS_FILE)
-            Utils.logger(f"User logged out: {self._current_user.email}")
+            print(f"User logged out: {self._current_user.email}")
             self._current_user = None
 
