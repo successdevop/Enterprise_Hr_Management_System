@@ -1,0 +1,22 @@
+{
+    "success@gmail.com": {
+        "employee_id": "788f9d7a-b871-4bad-8e46-f9eea7a6b7d8",
+        "name": "Success raphael ifeanyi",
+        "email": "success@gmail.com",
+        "age": 19,
+        "origin": "imo state, Nigeria",
+        "role": "Admin",
+        "salary": 50000,
+        "password": "echezPay123@/.com"
+    },
+    "tobi@gmail.com": {
+        "employee_id": "54ca117c-39e9-41f7-a8c1-08d2f788ecb7",
+        "name": "Tobi",
+        "email": "tobi@gmail.com",
+        "age": 25,
+        "origin": "ogun state, Nigeria",
+        "role": "Employee",
+        "salary": 4000,
+        "password": "tobiPass123@/.com"
+    }
+}

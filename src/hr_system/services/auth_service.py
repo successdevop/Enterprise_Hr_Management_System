@@ -1,5 +1,7 @@
 from src.hr_system.repositories.employee_repo import EmployeeRepository
 from src.hr_system.utils.utils import Utils
+from src.hr_system.storage.json_operator import logger, save_to_jason_database
+from src.hr_system.storage.config import LOGS_FILE
 
 
 class AuthService:
@@ -28,11 +30,13 @@ class AuthService:
         employee.set_password(password)
 
         self._employee_repo.save_employee(employee)
+        logger(f"Congratulations!, registration successful {email}", LOGS_FILE)
         Utils.logger(f"Registration Successful! ({email})")
         return employee
 
     def login(self, email, password):
-        user = self._employee_repo.get_by_email(email.strip().lower())
+        email = email.lower().strip()
+        user = self._employee_repo.get_by_email(email)
 
         if not user:
             raise ValueError("Invalid email or password")
@@ -40,15 +44,17 @@ class AuthService:
         if not user.check_password(password):
             raise ValueError("invalid email or password")
 
-        if not user.is_active:
+        if not user.isActive:
             raise ValueError("Account is deactivated")
 
         self._current_user = user
+        logger(f"Login successful: {email}", LOGS_FILE)
         Utils.logger(f"Login successful: {email}")
         return user
 
     def logout(self):
         if self._current_user:
+            logger(f"User logged out: {self._current_user.email}", LOGS_FILE)
             Utils.logger(f"User logged out: {self._current_user.email}")
             self._current_user = None
 

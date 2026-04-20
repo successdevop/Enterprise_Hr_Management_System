@@ -1,3 +1,4 @@
+import datetime
 import uuid
 from src.hr_system.models.person import Person
 from src.hr_system.models.role import Role
@@ -8,10 +9,11 @@ class Employee(Person):
     def __init__(self, name: str, email, age, origin, role: Role, salary: float):
         super().__init__(name=name, email=email, age=age, state_of_origin=origin)
         self._emp_id = str(uuid.uuid4())
-        self._role = role
+        self.role = role
         self._salary = salary
-        self._isActive = True
+        self.isActive = True
         self._password = None
+        self.onboarding_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def set_password(self, password):
         self._password = password
@@ -31,15 +33,38 @@ class Employee(Person):
     def salary(self, salary):
         self._salary = Utils.validate_amount_input(salary)
 
-    @property
-    def is_active(self):
-        return self._isActive
-
     def deactivate(self):
-        self._isActive = False
+        self.isActive = False
+
+    def to_dict(self) -> dict:
+        return {
+            "employee_id": self.employee_id,
+            "name": self.name,
+            "email": self.email,
+            "age": self.age,
+            "origin": self.origin,
+            "role": self.role.value,
+            "salary": self.salary,
+            "password": self._password
+        }
+
+    @classmethod
+    def from_dict_to_object(cls, data: dict) -> "Employee":
+        employee = cls(
+            name=data.get("name"),
+            email=data.get("email"),
+            age=data.get("age"),
+            origin=data.get("origin"),
+            role=data.get("role"),
+            salary=data.get("salary"),
+        )
+
+        employee._emp_id = data.get("employee_id")
+        employee._password = data.get("password")
+        return employee
 
     def __repr__(self):
-        return f"<Employee id: {self._emp_id} | name: {self.name} | role: {self._role.value} >"
+        return f"<Employee id: {self._emp_id} | name: {self.name} | role: {self.role.value} >"
 
 
 # class Manager(Employee):

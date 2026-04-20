@@ -1,10 +1,11 @@
 from repositories.employee_repo import EmployeeRepository
 from services.auth_service import AuthService
 from models.role import Role
+from storage.config import EMPLOYEE_DATABASE_BY_EMAIL
 
 
 def main():
-    repo = EmployeeRepository()
+    repo = EmployeeRepository(EMPLOYEE_DATABASE_BY_EMAIL)
     auth = AuthService(repo)
 
     employee_1 = auth.register(
@@ -19,18 +20,19 @@ def main():
 
     employee_2 = auth.register(
         "Tobi",
-        "TOBI@gmail.com", 25,
+        "TOBI@gmail.com",
+        25,
         "ogun state, Nigeria",
         Role.EMPLOYEE,
         4000,
         "tobiPass123@/.com"
     )
 
-    auth.login("SUCcess@gmail.com", "echezPay123@/.com")
-
-    auth.logout()
-
-    repo.get_all()
+    # auth.login("SUCcess@gmail.com", "echezPay123@/.com")
+    #
+    # auth.logout()
+    #
+    # repo.get_all()
 
 
 main()
