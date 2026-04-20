@@ -1,6 +1,7 @@
 import json
 from src.hr_system.models.employee import Employee
-from src.hr_system.utils.utils import Utils
+from src.hr_system.storage.json_operator import logger
+from src.hr_system.storage.config import LOGS_FILE
 from typing import Dict
 
 
@@ -27,7 +28,7 @@ class EmployeeRepository:
 
         except Exception as e:
             print(e)
-            Utils.logger(f"{e}")
+            logger(f"{e}", LOGS_FILE)
             self._employees_by_email_database = {}
             self._employees_by_id_database = {}
 
