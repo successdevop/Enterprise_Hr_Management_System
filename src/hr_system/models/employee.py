@@ -1,4 +1,5 @@
 import datetime
+import hashlib
 import uuid
 from src.hr_system.models.person import Person
 from src.hr_system.models.role import Role
@@ -16,7 +17,7 @@ class Employee(Person):
         self.onboarding_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def set_password(self, password):
-        self._password = password
+        self._password = hashlib.sha256(password.encode()).hexdigest()
 
     def check_password(self, password) -> bool:
         return self._password == password
@@ -45,7 +46,9 @@ class Employee(Person):
             "origin": self.origin,
             "role": self.role.value,
             "salary": self.salary,
-            "password": self._password
+            "isActive": self.isActive,
+            "password": self._password,
+            "onboarding_date": self.onboarding_date
         }
 
     @classmethod
@@ -58,9 +61,10 @@ class Employee(Person):
             role=data.get("role"),
             salary=data.get("salary"),
         )
-
         employee._emp_id = data.get("employee_id")
+        employee.isActive = data.get("isActive")
         employee._password = data.get("password")
+        employee.onboarding_date = data.get("onboarding_date")
         return employee
 
     def __repr__(self):
