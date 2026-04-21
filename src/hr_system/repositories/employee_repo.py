@@ -21,23 +21,47 @@ class EmployeeRepository:
                 data = json.load(file_reader)
                 print(data)
 
-                for email, emp_obj in data.items():
-                    employee = Employee.from_dict_to_object(emp_obj)
-                    self._employees_by_email_database[email] = employee
-                    self._employees_by_id_database[employee.employee_id] = employee
+                if isinstance(data, dict):
+                    for email, emp_obj in data.items():
+                        if isinstance(emp_obj, dict):
+                            employee = Employee.from_dict_to_object(emp_obj)
+                        else:
+                            employee = emp_obj
 
+                        self._employees_by_email_database[email] = employee
+                        self._employees_by_id_database[employee.employee_id] = employee
+        except FileNotFoundError:
+            # First run - file doesn't exist yet
+            logger(f"Database file not found, starting fresh", LOGS_FILE)
+            self._employees_by_email_database = {}
+            self._employees_by_id_database = {}
+        except json.JSONDecodeError as e:
+            # File exists but is empty or corrupted
+            logger(f"JSON decode error: {e}", LOGS_FILE)
+            self._employees_by_email_database = {}
+            self._employees_by_id_database = {}
         except Exception as e:
-            print(e)
-            logger(f"{e}", LOGS_FILE)
+            logger(f"Error loading database: {e}", LOGS_FILE)
             self._employees_by_email_database = {}
             self._employees_by_id_database = {}
 
     def save_employee(self, employee: Employee):
+        # Add to in-memory databases
         self._employees_by_email_database[employee.email] = employee
         self._employees_by_id_database[employee.employee_id] = employee
 
-        with open(self._json_file_database, mode="a", encoding="utf-8") as file_writer:
-            file_writer.write(json.dumps(employee.to_dict(), indent=4))
+        # Prepare data for JSON serialization
+        savable_data = {
+            email: employee.to_dict()
+            for email, employee in self._employees_by_email_database.items()
+        }
+
+        try:
+            with open(self._json_file_database, mode="a", encoding="utf-8") as file_writer:
+                json.dump(savable_data, file_writer, indent=4)
+        except Exception as e:
+            logger(f"Error saving employee: {e}", LOGS_FILE)
+            raise
 
     def update_employee(self, employee: Employee):
         emp = self._employees_by_email_database.get(employee.email)
