@@ -2,7 +2,7 @@ import json
 from src.hr_system.models.employee import Employee
 from src.hr_system.storage.json_operator import logger
 from src.hr_system.storage.config import LOGS_FILE
-from typing import Dict
+from typing import Dict, Optional, List
 
 
 class EmployeeRepository:
@@ -11,6 +11,62 @@ class EmployeeRepository:
         self._employees_by_id_database: Dict[str, Employee] = {}
         self._employees_by_email_database: Dict[str, Employee] = {}
         self._load_employee_database()
+
+    def save_employee(self, employee: Employee):
+        # Add to in-memory databases
+        self._employees_by_email_database[employee.email] = employee
+        self._employees_by_id_database[employee.employee_id] = employee
+
+        # Prepare data for JSON serialization
+        savable_data = {
+            email: employee.to_dict()
+            for email, employee in self._employees_by_email_database.items()
+        }
+
+        try:
+            with open(self._json_file_database, mode="a", encoding="utf-8") as file_writer:
+                json.dump(savable_data, file_writer, indent=4)
+        except Exception as e:
+            logger(f"Error saving employee: {e}", LOGS_FILE)
+            raise
+
+    def get_by_id(self, emp_id: str) -> Optional[Employee]:
+        return self._employees_by_id_database.get(emp_id)
+
+    def get_by_email(self, email: str) -> Optional[Employee]:
+        return self._employees_by_email_database.get(email)
+
+    def get_all(self) -> List[Employee]:
+        return list(self._employees_by_email_database.values())
+
+    def update_employee(self, employee: Employee):
+        """Update an existing employee"""
+        if employee.email in self._employees_by_email_database:
+            self.save_employee(employee)
+        else:
+            raise ValueError(f"Staff with ID {employee.employee_id} not found")
+
+    def delete_employee(self, employee: Employee):
+        """Delete an employee"""
+        if employee.email in self._employees_by_email_database:
+            del self._employees_by_email_database[employee.email]
+            del self._employees_by_id_database[employee.employee_id]
+            self._save_all()
+        else:
+            raise ValueError(f"Staff with ID {employee.employee_id} not found")
+
+    def count(self) -> int:
+        return len(self._employees_by_email_database)
+
+    def _save_all(self):
+        """Save entire database to file"""
+        savable_data = {
+            email: employee.to_dict()
+            for email, employee in self._employees_by_email_database.items()
+        }
+
+        with open(self._json_file_database, mode="w", encoding="utf-8") as file_writer:
+            json.dump(savable_data, file_writer, indent=4)
 
     def _load_employee_database(self):
         self._employees_by_email_database.clear()
@@ -44,47 +100,3 @@ class EmployeeRepository:
             logger(f"Error loading database: {e}", LOGS_FILE)
             self._employees_by_email_database = {}
             self._employees_by_id_database = {}
-
-    def save_employee(self, employee: Employee):
-        # Add to in-memory databases
-        self._employees_by_email_database[employee.email] = employee
-        self._employees_by_id_database[employee.employee_id] = employee
-
-        # Prepare data for JSON serialization
-        savable_data = {
-            email: employee.to_dict()
-            for email, employee in self._employees_by_email_database.items()
-        }
-
-        try:
-            with open(self._json_file_database, mode="a", encoding="utf-8") as file_writer:
-                json.dump(savable_data, file_writer, indent=4)
-        except Exception as e:
-            logger(f"Error saving employee: {e}", LOGS_FILE)
-            raise
-
-    def update_employee(self, employee: Employee):
-        emp = self._employees_by_email_database.get(employee.email)
-
-        if not emp:
-            print(f"Staff with ID {employee.employee_id} not found")
-            return
-
-        self._employees_by_email_database[employee.email] = employee
-        self._employees_by_id_database[employee.employee_id] = employee
-
-        with open(self._json_file_database, mode="w", encoding="utf-8") as file_writer:
-            for employee in self._employees_by_email_database.values():
-                file_writer.write(json.dumps(employee.to_dict(), indent=4))
-
-    def get_by_id(self, emp_id: str) -> Employee | None:
-        return self._employees_by_id_database.get(emp_id)
-
-    def get_by_email(self, email: str) -> Employee | None:
-        return self._employees_by_email_database.get(email)
-
-    def get_all(self) -> list:
-        return list(self._employees_by_email_database)
-
-    def count(self) -> int:
-        return len(self._employees_by_email_database)
