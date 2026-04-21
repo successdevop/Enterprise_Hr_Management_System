@@ -1,6 +1,6 @@
 from src.hr_system.repositories.employee_repo import EmployeeRepository
 from src.hr_system.utils.utils import Utils
-from src.hr_system.storage.json_operator import logger
+from src.hr_system.storage.logger import logger
 from src.hr_system.storage.config import LOGS_FILE
 from src.hr_system.models.role import Role
 

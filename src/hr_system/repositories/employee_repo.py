@@ -1,7 +1,7 @@
 import json
 from src.hr_system.models.employee import Employee
-from src.hr_system.storage.json_operator import logger
-from src.hr_system.storage.config import LOGS_FILE
+from src.hr_system.storage.logger import Logger
+from src.hr_system.utils.exceptions import NotFoundError
 from typing import Dict, Optional, List
 
 
@@ -27,14 +27,20 @@ class EmployeeRepository:
             with open(self._json_file_database, mode="w", encoding="utf-8") as file_writer:
                 json.dump(savable_data, file_writer, indent=4)
         except Exception as e:
-            logger(f"Error saving employee: {e}", LOGS_FILE)
+            Logger.error(f"Error saving employee: {e}")
             raise
 
     def get_by_id(self, emp_id: str) -> Optional[Employee]:
-        return self._employees_by_id_database.get(emp_id)
+        employee = self._employees_by_id_database.get(emp_id)
+        if not employee:
+            raise NotFoundError(f"Employee with ID {employee.employee_id} not found")
+        return employee
 
     def get_by_email(self, email: str) -> Optional[Employee]:
-        return self._employees_by_email_database.get(email)
+        employee = self._employees_by_email_database.get(email)
+        if not employee:
+            raise NotFoundError(f"Employee with ID {employee.employee_id} not found")
+        return employee
 
     def get_all(self) -> List[Employee]:
         return list(self._employees_by_email_database.values())
@@ -44,7 +50,7 @@ class EmployeeRepository:
         if employee.email in self._employees_by_email_database:
             self.save_employee(employee)
         else:
-            raise ValueError(f"Staff with ID {employee.employee_id} not found")
+            raise NotFoundError(f"Employee with ID {employee.employee_id} not found")
 
     def delete_employee(self, employee: Employee):
         """Delete an employee"""
@@ -53,7 +59,7 @@ class EmployeeRepository:
             del self._employees_by_id_database[employee.employee_id]
             self._save_all()
         else:
-            raise ValueError(f"Staff with ID {employee.employee_id} not found")
+            raise NotFoundError(f"Employee with ID {employee.employee_id} not found")
 
     def count(self) -> int:
         return len(self._employees_by_email_database)
@@ -75,7 +81,6 @@ class EmployeeRepository:
         try:
             with open(self._json_file_database, mode="r", encoding="utf-8") as file_reader:
                 data = json.load(file_reader)
-                print(data)
 
                 if isinstance(data, dict):
                     for email, emp_obj in data.items():
@@ -88,15 +93,15 @@ class EmployeeRepository:
                         self._employees_by_id_database[employee.employee_id] = employee
         except FileNotFoundError:
             # First run - file doesn't exist yet
-            logger(f"Database file not found, starting fresh", LOGS_FILE)
+            Logger.error(f"Database file not found, starting fresh")
             self._employees_by_email_database = {}
             self._employees_by_id_database = {}
         except json.JSONDecodeError as e:
             # File exists but is empty or corrupted
-            logger(f"JSON decode error: {e}", LOGS_FILE)
+            Logger.error(f"JSON decode error: {e}")
             self._employees_by_email_database = {}
             self._employees_by_id_database = {}
         except Exception as e:
-            logger(f"Error loading database: {e}", LOGS_FILE)
+            Logger.error(f"Error loading database: {e}")
             self._employees_by_email_database = {}
             self._employees_by_id_database = {}

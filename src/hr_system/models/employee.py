@@ -4,6 +4,7 @@ import uuid
 from src.hr_system.models.person import Person
 from src.hr_system.models.role import Role
 from src.hr_system.utils.utils import Utils
+from src.hr_system.utils.exceptions import ValidationError
 
 
 class Employee(Person):
@@ -17,6 +18,9 @@ class Employee(Person):
         self.onboarding_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def set_password(self, password):
+        if password and password < 8:
+            raise ValidationError("Password must be at least 6 characters long")
+
         self._password = hashlib.sha256(password.encode()).hexdigest()
 
     def _get_password(self):
@@ -87,5 +91,3 @@ class Employee(Person):
 # class Hr(Employee):
 #     def __init__(self, name, email, age, origin, emp_id, salary):
 #         super().__init__(name, email, age, origin, emp_id, role="HR", salary=salary)
-
-
