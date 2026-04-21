@@ -24,7 +24,7 @@ class EmployeeRepository:
         }
 
         try:
-            with open(self._json_file_database, mode="a", encoding="utf-8") as file_writer:
+            with open(self._json_file_database, mode="w", encoding="utf-8") as file_writer:
                 json.dump(savable_data, file_writer, indent=4)
         except Exception as e:
             logger(f"Error saving employee: {e}", LOGS_FILE)

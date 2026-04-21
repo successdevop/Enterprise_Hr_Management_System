@@ -1,32 +1,27 @@
-import random
 import re
-from datetime import datetime
 
 
 class Utils:
     """ this class provides the functions/methods that serves as helper function to our application"""
-    @staticmethod
-    def generate_nin(employee_database: list) -> str:
-        while True:
-            nin = "".join(str(random.randint(1, 9)) for _ in range(10))
-            if not any(person.nin == nin for person in employee_database):
-                return nin
 
     @staticmethod
     def validate_name(name: str) -> str | None:
-        name = name.strip().title()
         if name and len(name) >= 3:
-            return name.strip().capitalize()
+            return name.strip().title()
         print("Name value cannot be empty and must be at-least 3 characters")
-        return
+        return None
 
     @staticmethod
     def validate_email(email: str) -> str | None:
-        pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-        if re.match(pattern, email):
+        # Stricter pattern that prevents leading/trailing dots
+        pattern = r'^[a-zA-Z0-9][a-zA-Z0-9._%+-]*[a-zA-Z0-9]@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        # Additional check for consecutive dots
+        local_part = email.split('@')[0]
+        if re.match(pattern, email) and '..' not in local_part:
             return email
+
         print("Invalid email format. Enter a correct email")
-        return
+        return None
 
     @staticmethod
     def validate_age(age: int) -> int | None:
@@ -35,25 +30,21 @@ class Utils:
                 return age
             else:
                 print("You must be at-least 18 years")
-                return
+                return None
         else:
             print("Invalid age value")
-            return
+            return None
 
     @staticmethod
-    def validate_amount_input(amount) -> float:
+    def validate_amount_input(amount) -> float | None:
         """
         this function takes the user input and checks if it is an actually number
         and that the number is also not negative
         :param amount: user input
         :return: float number
         """
-        try:
-            if float(amount) > 0:
-                return float(amount)
-        except Exception as e:
-            print(f"{e} | Amount cannot be negative and must be greater than 0")
-
-    @staticmethod
-    def logger(message: str):
-        print(f"[{datetime.now()}]: {message}")
+        if float(amount) > 0:
+            return float(amount)
+        else:
+            print(f"Amount cannot be negative and must be greater than 0")
+            return None

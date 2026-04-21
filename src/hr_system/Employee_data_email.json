@@ -1,0 +1,38 @@
+{
+    "success@gmail.com": {
+        "employee_id": "523b9b56-bbcb-4b3d-bfa5-24510f07ce43",
+        "name": "Success raphael ifeanyi",
+        "email": "success@gmail.com",
+        "age": 30,
+        "origin": "imo state, Nigeria",
+        "role": "Admin",
+        "salary": 50000,
+        "isActive": true,
+        "password": "3e763c4d5f5017495e5876791a9a51d676431811960bbde74932434f56a7fda9",
+        "onboarding_date": "2026-04-21 10:44:37"
+    },
+    "umah@gmail.com": {
+        "employee_id": "52bb49b4-6ba9-4918-8912-f8b70877e48c",
+        "name": "favour",
+        "email": "umah@gmail.com",
+        "age": 27,
+        "origin": "ebonyi, Nigeria",
+        "role": "Employee",
+        "salary": 15000,
+        "isActive": true,
+        "password": "47a334fedebb4534323c9436e05f7126d15f01960ea106981fd67fe6e9e49f1b",
+        "onboarding_date": "2026-04-21 10:44:37"
+    },
+    "tobi@gmail.com": {
+        "employee_id": "caef5fa5-f8ab-40a9-ad2d-ff038b568a3e",
+        "name": "Tobi",
+        "email": "tobi@gmail.com",
+        "age": 25,
+        "origin": "ogun state, Nigeria",
+        "role": "Employee",
+        "salary": 4000,
+        "isActive": true,
+        "password": "5823a3e43c2bc0d33e138dc6f258fbd2efb80d1a3e54b4b4f165883fecf0c985",
+        "onboarding_date": "2026-04-21 10:45:22"
+    }
+}

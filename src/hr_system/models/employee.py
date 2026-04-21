@@ -19,8 +19,12 @@ class Employee(Person):
     def set_password(self, password):
         self._password = hashlib.sha256(password.encode()).hexdigest()
 
+    def _get_password(self):
+        return self._password
+
     def check_password(self, password) -> bool:
-        return self._password == password
+        test = hashlib.sha256(password.encode()).hexdigest()
+        return test == self._get_password()
 
     @property
     def employee_id(self):
@@ -44,7 +48,7 @@ class Employee(Person):
             "email": self.email,
             "age": self.age,
             "origin": self.origin,
-            "role": self.role.value,
+            "role": self.role.value if hasattr(self.role, "value") else self.role,
             "salary": self.salary,
             "isActive": self.isActive,
             "password": self._password,
