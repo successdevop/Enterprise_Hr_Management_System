@@ -22,8 +22,13 @@ class AuthService:
 
         employee = Employee(name, email, age, origin, role, salary)
 
-        if (not Utils.validate_name(name) or not Utils.validate_age(age)
-                or not Utils.validate_name(origin) or not Utils.validate_amount_input(salary)):
+        if not Utils.validate_name(name):
+            return
+        if not Utils.validate_age(age):
+            return
+        if not Utils.validate_name(origin):
+            return
+        if not Utils.validate_amount_input(salary):
             return
 
         if len(password) < 8:
@@ -31,7 +36,7 @@ class AuthService:
         employee.set_password(password)
 
         self._employee_repo.save_employee(employee)
-        logger(f"Congratulations!, registration successful {email}", LOGS_FILE)
+        logger(f"Congratulations {name}, your registration successful", LOGS_FILE)
         print(f"Registration Successful! ({email})")
         return employee
 
