@@ -18,7 +18,7 @@ class Employee(Person):
         self.onboarding_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def set_password(self, password):
-        if password and password < 8:
+        if password and len(password) < 8:
             raise ValidationError("Password must be at least 6 characters long")
 
         self._password = hashlib.sha256(password.encode()).hexdigest()

@@ -1,0 +1,7 @@
+[2026-04-21 14:57:40]: Database file not found, starting fresh 
+[2026-04-21 15:07:00]: Database file not found, starting fresh 
+[2026-04-21 15:08:45]: Database file not found, starting fresh 
+[2026-04-21 15:19:48]: Login Failed: wrong password for success@gmail.com 
+[2026-04-21 15:20:50]: Login Failed: sucess@gmail.com not found 
+[2026-04-21 15:21:44]: Login Failed: Account is deactivated 
+[2026-04-21 15:23:23]: Login Failed: Account is deactivated (success@gmail.com) 

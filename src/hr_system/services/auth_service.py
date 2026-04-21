@@ -1,6 +1,7 @@
 from src.hr_system.repositories.employee_repo import EmployeeRepository
 from src.hr_system.utils.utils import Utils
-from src.hr_system.storage.logger import logger
+from src.hr_system.utils.exceptions import UserAlreadyExistError, AuthenticationError
+from src.hr_system.storage.logger import Logger
 from src.hr_system.storage.config import LOGS_FILE
 from src.hr_system.models.role import Role
 
@@ -14,29 +15,23 @@ class AuthService:
         from src.hr_system.models.employee import Employee
 
         email = email.lower().strip()
-        if not Utils.validate_email(email):
-            return
+        Utils.validate_email(email)
 
         if self._employee_repo.get_by_email(email):
-            raise ValueError("User already exist")
+            raise UserAlreadyExistError(f"{email} already exists")
 
         employee = Employee(name, email, age, origin, role, salary)
 
-        if not Utils.validate_name(name):
-            return
-        if not Utils.validate_age(age):
-            return
-        if not Utils.validate_name(origin):
-            return
-        if not Utils.validate_amount_input(salary):
-            return
+        Utils.validate_name(name)
+        Utils.validate_age(age)
+        Utils.validate_name(origin)
+        Utils.validate_amount_input(salary)
 
-        if len(password) < 8:
-            raise ValueError("Password must be at least 8 characters")
         employee.set_password(password)
 
         self._employee_repo.save_employee(employee)
-        logger(f"Congratulations {name}, your registration successful", LOGS_FILE)
+
+        Logger.info(f"Congratulations {name}, registration successful", LOGS_FILE)
         print(f"Registration Successful! ({email})")
         return employee
 
@@ -45,22 +40,25 @@ class AuthService:
         user = self._employee_repo.get_by_email(email)
 
         if not user:
-            raise ValueError("Invalid email or password")
+            Logger.error(f"Login Failed: {email} not found")
+            raise AuthenticationError("user not found")
 
         if not user.check_password(password):
-            raise ValueError("invalid email or password")
+            Logger.error(f"Login Failed: wrong password for {email}")
+            raise AuthenticationError("invalid email or password")
 
         if not user.isActive:
-            raise ValueError("Account is deactivated")
+            Logger.error(f"Login Failed: Account is deactivated ({email})")
+            raise AuthenticationError("Account is deactivated")
 
         self._current_user = user
-        logger(f"Login successful: {email}", LOGS_FILE)
+        Logger.info(f"Login successful: {email}", LOGS_FILE)
         print(f"Login successful: {email}")
         return user
 
     def logout(self):
         if self._current_user:
-            logger(f"User logged out: {self._current_user.email}", LOGS_FILE)
+            Logger.info(f"User logged out: {self._current_user.email}", LOGS_FILE)
             print(f"User logged out: {self._current_user.email}")
             self._current_user = None
 

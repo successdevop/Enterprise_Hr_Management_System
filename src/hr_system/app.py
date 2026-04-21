@@ -38,8 +38,19 @@ def main():
     #     "umahPass123@/.com"
     # )
 
-    user_1 = auth.login("SUCcess@gmail.com", "echezPay123@/.com")
-    user_2 = auth.login("umah@gmail.com", "umahPass123@/.com")
+    #
+    employee_4 = auth.register(
+        "Oluchi Raphael",
+        "oluchi@gmail.com",
+        24,
+        "Enugu state, Nigeria",
+        Role.HR,
+        10000,
+        "olu123@/.com"
+    )
+
+    # auth.login("SUccess@gmail.com", "echezPay123@/.com")
+    # auth.login("umah@gmail.com", "umahPass123@/.com")
     # repo.get_all()
 
 

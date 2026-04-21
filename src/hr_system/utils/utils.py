@@ -1,39 +1,35 @@
 import re
+from src.hr_system.utils.exceptions import ValidationError
 
 
 class Utils:
     """ this class provides the functions/methods that serves as helper function to our application"""
 
     @staticmethod
-    def validate_name(name: str) -> str | None:
+    def validate_name(name: str) -> str:
         if name and len(name) >= 3:
             return name.strip().title()
-        print("Name value cannot be empty and must be at-least 3 characters")
-        return None
+        raise ValidationError("Name value cannot be empty and must be at-least 3 characters")
 
     @staticmethod
-    def validate_email(email: str) -> str | None:
+    def validate_email(email: str) -> str:
         # Stricter pattern that prevents leading/trailing dots
         pattern = r'^[a-zA-Z0-9][a-zA-Z0-9._%+-]*[a-zA-Z0-9]@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         # Additional check for consecutive dots
         local_part = email.split('@')[0]
         if re.match(pattern, email) and '..' not in local_part:
             return email
-
-        print("Invalid email format. Enter a correct email")
-        return None
+        raise ValidationError("Invalid email format. Enter a correct email")
 
     @staticmethod
-    def validate_age(age: int) -> int | None:
+    def validate_age(age: int) -> int:
         if isinstance(age, int):
             if age >= 18:
                 return age
             else:
-                print("You must be at-least 18 years")
-                return None
+                raise ValidationError("You must be at-least 18 years")
         else:
-            print("Invalid age value")
-            return None
+            raise ValidationError("Invalid age value")
 
     @staticmethod
     def validate_amount_input(amount) -> float | None:
@@ -43,8 +39,7 @@ class Utils:
         :param amount: user input
         :return: float number
         """
-        if float(amount) > 0:
+        if amount > 0:
             return float(amount)
         else:
-            print(f"Amount cannot be negative and must be greater than 0")
-            return None
+            raise ValidationError(f"Amount cannot be negative and must be greater than 0")

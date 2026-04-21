@@ -37,10 +37,7 @@ class EmployeeRepository:
         return employee
 
     def get_by_email(self, email: str) -> Optional[Employee]:
-        employee = self._employees_by_email_database.get(email)
-        if not employee:
-            raise NotFoundError(f"Employee with ID {employee.employee_id} not found")
-        return employee
+        return self._employees_by_email_database.get(email)
 
     def get_all(self) -> List[Employee]:
         return list(self._employees_by_email_database.values())
