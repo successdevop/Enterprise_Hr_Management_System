@@ -28,5 +28,16 @@ class Department:
         else:
             raise NotFoundError("Employee not in department")
 
+    def _to_dict(self):
+        return {
+            "name": self.name,
+            "manager": self.manager,
+            "dept_employees": self._dept_employees
+        }
+
+    @classmethod
+    def _from_to_dict(cls, data):
+       pass
+
     def __repr__(self):
         return f"<Department name: {self.name} | manager: {self.manager.name}>"
