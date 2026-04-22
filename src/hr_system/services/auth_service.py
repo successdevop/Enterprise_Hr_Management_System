@@ -55,7 +55,6 @@ class AuthService:
         self.current_user = user
         Logger.info(f"Login successful: {email}", LOGS_FILE)
         print(f"Login successful: {email}")
-        print(user)
         return user
 
     def logout(self):

@@ -1,7 +1,13 @@
 {
     "Engineering": {
-        "name": "Engineering",
-        "manager": "Tobi",
-        "dept_employees": []
+        "dept_name": "Engineering",
+        "dept_manager": "Tobi",
+        "dept_employees": [
+            {
+                "name": "favour",
+                "email": "umah@gmail.com",
+                "role": "Employee"
+            }
+        ]
     }
 }

@@ -80,5 +80,13 @@ class Employee(Person):
         employee.onboarding_date = data.get("onboarding_date")
         return employee
 
+    def __eq__(self, other):
+        if not isinstance(other, Employee):
+            return False
+        return self.email.lower() == other.email.lower()
+
+    def __hash__(self):
+        return hash(self.email.lower())
+
     def __repr__(self):
         return f"<Employee id: {self._emp_id} | name: {self.name} | role: {self.role.value} >"

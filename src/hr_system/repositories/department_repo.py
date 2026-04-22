@@ -36,7 +36,7 @@ class DepartmentRepo:
         raise NotFoundError("Manager not found")
 
     def delete_department(self, dept_name: str):
-        if dept_name not in self._dept_database.get(dept_name):
+        if dept_name not in self._dept_database:
             raise NotFoundError("Department not found")
 
         del self._dept_database[dept_name]
@@ -75,7 +75,6 @@ class DepartmentRepo:
                         else:
                             dept = department
                         self._dept_database[name] = dept
-
         except FileNotFoundError:
             # First run - File doesn't exist yet
             Logger.error("Database file not found, starting fresh")
