@@ -11,9 +11,17 @@ class Department:
         if manager.role.value != "Manager":
             raise ValidationError("Department manager must have a Manager role")
 
-        self.name = name
-        self.manager = manager
+        self._name = name
+        self._manager = manager
         self._dept_employees: List[Employee] = []
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def manager(self):
+        return self._manager
 
     def add_employee(self, employee: Employee):
         if employee in self._dept_employees:
@@ -34,8 +42,8 @@ class Department:
 
     def to_dict(self):
         return {
-            "name": self.name,
-            "manager": self.manager,
+            "name": self._name,
+            "manager": self._manager,
             "dept_employees": self._dept_employees
         }
 
@@ -49,4 +57,4 @@ class Department:
         return department
 
     def __repr__(self):
-        return f"<Department name: {self.name} | manager: {self.manager.name}>"
+        return f"<Department name: {self._name} | manager: {self._manager.name}>"

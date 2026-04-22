@@ -13,7 +13,7 @@ class DepartmentRepo:
         self._load_dept_database()
 
     def save_department(self, dept: Department):
-        self._dept_database[dept.name] = dept
+        self._dept_database[dept._name] = dept
 
         savable_data = {
             name: dept.to_dict()
@@ -29,9 +29,9 @@ class DepartmentRepo:
     def get_department_by_name(self, dept_name: str) -> Optional[Department]:
         return self._dept_database.get(dept_name)
 
-    def get_department_by_manager(self, manager: Employee):
+    def get_department_by_manager(self, manager: Employee) -> Optional[Department]:
         for dept in self._dept_database.values():
-            if dept.manager == manager.role:
+            if dept._manager == manager.role:
                 return dept
         raise NotFoundError("Manager not found")
 
