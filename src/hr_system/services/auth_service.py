@@ -9,7 +9,7 @@ from src.hr_system.models.role import Role
 class AuthService:
     def __init__(self, employee_repo: EmployeeRepository):
         self._employee_repo = employee_repo
-        self._current_user = None
+        self.current_user = None
 
     def register(self, name: str, email: str, age: int, origin: str, role: Role, salary: float, password: str):
         from src.hr_system.models.employee import Employee
@@ -51,14 +51,13 @@ class AuthService:
             Logger.error(f"Login Failed: Account is deactivated ({email})")
             raise AuthenticationError("Account is deactivated")
 
-        self._current_user = user
+        self.current_user = user
         Logger.info(f"Login successful: {email}", LOGS_FILE)
         print(f"Login successful: {email}")
         return user
 
     def logout(self):
-        if self._current_user:
-            Logger.info(f"User logged out: {self._current_user.email}", LOGS_FILE)
-            print(f"User logged out: {self._current_user.email}")
-            self._current_user = None
-
+        if self.current_user:
+            Logger.info(f"User logged out: {self.current_user.email}", LOGS_FILE)
+            print(f"User logged out: {self.current_user.email}")
+            self.current_user = None
