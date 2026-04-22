@@ -28,7 +28,11 @@ class Department:
         else:
             raise NotFoundError("Employee not in department")
 
-    def _to_dict(self):
+    def view_department(self):
+        for emp in self._dept_employees:
+            print(emp)
+
+    def to_dict(self):
         return {
             "name": self.name,
             "manager": self.manager,
@@ -36,8 +40,13 @@ class Department:
         }
 
     @classmethod
-    def _from_to_dict(cls, data):
-       pass
+    def from_to_dict(cls, data) -> "Department":
+        department = cls(
+            name=data["name"],
+            manager=data["manager"],
+        )
+        department._dept_employees = data["dept_employees"]
+        return department
 
     def __repr__(self):
         return f"<Department name: {self.name} | manager: {self.manager.name}>"
