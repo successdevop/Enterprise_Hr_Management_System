@@ -11,44 +11,42 @@ from src.hr_system.services.permision_service import PermissionService
 
 class DepartmentService:
     def __init__(self, department_repo: DepartmentRepo):
-        self.department_repo = department_repo
+        self.__department_repo = department_repo
 
     def create_department(self, current_user, dept_name: str, manager: Employee):
         PermissionService.required_role(current_user, [Role.ADMIN, Role.HR])
+        Utils.validate_name(dept_name)
 
-        if self.department_repo.get_department_by_name(dept_name):
+        if self.__department_repo.get_department_by_name(dept_name):
             raise UserAlreadyExistError("Department already exist")
 
         department = Department(dept_name, manager)
-        Utils.validate_name(dept_name)
 
-        self.department_repo.save_department(department)
+        self.__department_repo.save_department(department)
         Logger.info(f"Department: {dept_name} created", LOGS_FILE)
         return department
 
     def assign_employee(self, current_user, dept_name: str, employee: Employee):
         PermissionService.required_role(current_user, [Role.HR, Role.ADMIN])
 
-        department = self.department_repo.get_department_by_name(dept_name)
+        department = self.__department_repo.get_department_by_name(dept_name)
         if not department:
             raise NotFoundError("Department not found")
 
         department.add_employee(employee)
+        self.__department_repo.save_department(department)
 
     def remove_employee(self, current_user, dept_name: str, employee: Employee):
         PermissionService.required_role(current_user, [Role.HR, Role.ADMIN])
 
-        department = self.department_repo.get_department_by_name(dept_name)
+        department = self.__department_repo.get_department_by_name(dept_name)
         if not department:
             raise NotFoundError("Department not found")
 
         department.remove_employee(employee)
+        self.__department_repo.save_department(department)
 
     def delete_dept(self, current_user, dept_name: str):
         PermissionService.required_role(current_user, [Role.ADMIN])
 
-        department = self.department_repo.get_department_by_name(dept_name)
-        if not department:
-            raise NotFoundError("Department not found")
-
-        del department
+        self.__department_repo.delete_department(dept_name)

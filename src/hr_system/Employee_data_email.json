@@ -1,6 +1,6 @@
 {
     "success@gmail.com": {
-        "employee_id": "9a7bbca0-0937-4894-b2f6-13d78d13e3c1",
+        "employee_id": "2a117c8d-369b-4136-ad6e-aebf4119febc",
         "name": "Success raphael ifeanyi",
         "email": "success@gmail.com",
         "age": 30,
@@ -9,22 +9,22 @@
         "salary": 50000,
         "isActive": true,
         "password": "3e763c4d5f5017495e5876791a9a51d676431811960bbde74932434f56a7fda9",
-        "onboarding_date": "2026-04-21 15:08:45"
+        "onboarding_date": "2026-04-22 10:40:23"
     },
     "tobi@gmail.com": {
-        "employee_id": "3023dd94-72d3-458c-a4fd-b62334216733",
+        "employee_id": "2c1a7880-3ac3-4c16-9a19-97ff12eee364",
         "name": "Tobi",
         "email": "tobi@gmail.com",
         "age": 25,
         "origin": "ogun state, Nigeria",
-        "role": "Employee",
+        "role": "Manager",
         "salary": 4000,
         "isActive": true,
         "password": "5823a3e43c2bc0d33e138dc6f258fbd2efb80d1a3e54b4b4f165883fecf0c985",
-        "onboarding_date": "2026-04-21 15:10:31"
+        "onboarding_date": "2026-04-22 10:40:23"
     },
     "umah@gmail.com": {
-        "employee_id": "32abfe85-6f43-478a-ba17-72557944449b",
+        "employee_id": "fce3f22a-fee2-429f-821b-190d68e04e2b",
         "name": "favour",
         "email": "umah@gmail.com",
         "age": 27,
@@ -33,10 +33,10 @@
         "salary": 15000,
         "isActive": true,
         "password": "47a334fedebb4534323c9436e05f7126d15f01960ea106981fd67fe6e9e49f1b",
-        "onboarding_date": "2026-04-21 15:18:51"
+        "onboarding_date": "2026-04-22 10:40:23"
     },
     "oluchi@gmail.com": {
-        "employee_id": "90e18907-4196-4737-9d87-dd1dbb56219c",
+        "employee_id": "51eaedfe-4bf6-46b4-b9cf-aafe8fafea12",
         "name": "Oluchi Raphael",
         "email": "oluchi@gmail.com",
         "age": 24,
@@ -45,6 +45,6 @@
         "salary": 10000,
         "isActive": true,
         "password": "23ca1f0959c4855fa6cae3de1a517da0da00e356e36f250ee03d67a4921db98f",
-        "onboarding_date": "2026-04-21 15:28:33"
+        "onboarding_date": "2026-04-22 10:40:23"
     }
 }

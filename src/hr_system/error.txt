@@ -5,3 +5,42 @@
 [2026-04-21 15:20:50]: Login Failed: sucess@gmail.com not found 
 [2026-04-21 15:21:44]: Login Failed: Account is deactivated 
 [2026-04-21 15:23:23]: Login Failed: Account is deactivated (success@gmail.com) 
+[2026-04-22 10:07:23]: Database file not found, starting fresh 
+[2026-04-22 10:07:23]: Login Failed: succes@gmail.com not found 
+[2026-04-22 10:08:52]: Database file not found, starting fresh 
+[2026-04-22 10:16:29]: Database file not found, starting fresh 
+[2026-04-22 10:18:19]: Database file not found, starting fresh 
+[2026-04-22 10:22:39]: Database file not found, starting fresh 
+[2026-04-22 10:25:00]: Database file not found, starting fresh 
+[2026-04-22 10:26:52]: Database file not found, starting fresh 
+[2026-04-22 10:28:23]: Database file not found, starting fresh 
+[2026-04-22 10:29:23]: Database file not found, starting fresh 
+[2026-04-22 10:29:56]: Database file not found, starting fresh 
+[2026-04-22 10:30:23]: Database file not found, starting fresh 
+[2026-04-22 10:31:50]: Database file not found, starting fresh 
+[2026-04-22 10:40:23]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-22 10:40:23]: Database file not found, starting fresh 
+[2026-04-22 12:00:23]: Database file not found, starting fresh 
+[2026-04-22 12:01:34]: Database file not found, starting fresh 
+[2026-04-22 13:13:16]: Database file not found, starting fresh 
+[2026-04-22 13:29:10]: Database file not found, starting fresh 
+[2026-04-22 13:35:19]: Database file not found, starting fresh 
+[2026-04-22 13:41:36]: Database file not found, starting fresh 
+[2026-04-22 13:42:16]: Database file not found, starting fresh 
+[2026-04-22 13:59:45]: Database file not found, starting fresh 
+[2026-04-22 14:12:07]: Database file not found, starting fresh 
+[2026-04-22 14:14:48]: Database file not found, starting fresh 
+[2026-04-22 14:15:58]: Database file not found, starting fresh 
+[2026-04-22 14:28:01]: Database file not found, starting fresh 
+[2026-04-22 14:44:57]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-22 14:46:55]: Error loading database: 'str' object has no attribute 'get' 
+[2026-04-22 14:46:55]: Error saving department | Object of type Employee is not JSON serializable 
+[2026-04-22 14:47:26]: JSON decode error: Expecting value: line 6 column 13 (char 121) 
+[2026-04-22 14:47:26]: Error saving department | Object of type Employee is not JSON serializable 
+[2026-04-22 14:52:51]: JSON decode error: Expecting value: line 6 column 13 (char 121) 
+[2026-04-22 14:52:51]: Error saving department | Object of type Role is not JSON serializable 
+[2026-04-22 14:54:44]: JSON decode error: Expecting value: line 9 column 25 (char 224) 
+[2026-04-22 15:08:40]: Error loading database: 'str' object has no attribute 'role' 
+[2026-04-22 15:10:59]: Error loading database: 'str' object has no attribute 'role' 
+[2026-04-22 15:15:50]: Error loading database: 'str' object has no attribute 'role' 
+[2026-04-22 15:16:59]: Error loading database: 'str' object has no attribute 'role' 

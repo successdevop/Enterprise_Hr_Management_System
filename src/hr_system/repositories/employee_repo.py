@@ -37,6 +37,7 @@ class EmployeeRepository:
         return employee
 
     def get_by_email(self, email: str) -> Optional[Employee]:
+        email = email.strip().lower()
         return self._employees_by_email_database.get(email)
 
     def get_all(self) -> List[Employee]:

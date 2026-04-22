@@ -1,15 +1,17 @@
+from typing import Optional
 from src.hr_system.repositories.employee_repo import EmployeeRepository
 from src.hr_system.utils.utils import Utils
 from src.hr_system.utils.exceptions import UserAlreadyExistError, AuthenticationError
 from src.hr_system.storage.logger import Logger
 from src.hr_system.storage.config import LOGS_FILE
 from src.hr_system.models.role import Role
+from src.hr_system.models.employee import Employee
 
 
 class AuthService:
     def __init__(self, employee_repo: EmployeeRepository):
         self._employee_repo = employee_repo
-        self.current_user = None
+        self.current_user = Optional[Employee]
 
     def register(self, name: str, email: str, age: int, origin: str, role: Role, salary: float, password: str):
         from src.hr_system.models.employee import Employee
@@ -36,7 +38,6 @@ class AuthService:
         return employee
 
     def login(self, email, password):
-        email = email.lower().strip()
         user = self._employee_repo.get_by_email(email)
 
         if not user:
@@ -54,6 +55,7 @@ class AuthService:
         self.current_user = user
         Logger.info(f"Login successful: {email}", LOGS_FILE)
         print(f"Login successful: {email}")
+        print(user)
         return user
 
     def logout(self):

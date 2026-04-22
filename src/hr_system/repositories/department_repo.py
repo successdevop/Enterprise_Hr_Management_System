@@ -13,7 +13,7 @@ class DepartmentRepo:
         self._load_dept_database()
 
     def save_department(self, dept: Department):
-        self._dept_database[dept._name] = dept
+        self._dept_database[dept.name] = dept
 
         savable_data = {
             name: dept.to_dict()
@@ -31,9 +31,29 @@ class DepartmentRepo:
 
     def get_department_by_manager(self, manager: Employee) -> Optional[Department]:
         for dept in self._dept_database.values():
-            if dept._manager == manager.role:
+            if dept.manager == manager:
                 return dept
         raise NotFoundError("Manager not found")
+
+    def delete_department(self, dept_name: str):
+        if dept_name not in self._dept_database.get(dept_name):
+            raise NotFoundError("Department not found")
+
+        del self._dept_database[dept_name]
+        print("Department deleted")
+        self._save_all_departments()
+
+    def _save_all_departments(self):
+        savable_data = {
+            name: dept.to_dict()
+            for name, dept in self._dept_database.items()
+        }
+
+        try:
+            with open(self._dept_json_database, mode="w", encoding="utf-8") as file_writer:
+                json.dump(savable_data, file_writer, indent=4)
+        except Exception as e:
+            Logger.error(f"Error saving department | {e}")
 
     def get_all_dept(self) -> List[Department]:
         return list(self._dept_database.values())

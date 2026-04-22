@@ -61,12 +61,17 @@ class Employee(Person):
 
     @classmethod
     def from_dict_to_object(cls, data: dict) -> "Employee":
+
+        role = data.get("role")
+        if isinstance(role, str) and hasattr(Role, role.upper()):
+            role = Role[role.upper()]
+
         employee = cls(
             name=data.get("name"),
             email=data.get("email"),
             age=data.get("age"),
             origin=data.get("origin"),
-            role=data.get("role"),
+            role=role,
             salary=data.get("salary"),
         )
         employee._emp_id = data.get("employee_id")
@@ -77,17 +82,3 @@ class Employee(Person):
 
     def __repr__(self):
         return f"<Employee id: {self._emp_id} | name: {self.name} | role: {self.role.value} >"
-
-
-# class Manager(Employee):
-#     def __init__(self, name, email, age, emp_id, salary, origin):
-#         super().__init__(name, email, age, emp_id, origin, role="Manager", salary=salary)
-#         self.team = []
-#
-#     def add_team_member(self, employee):
-#         self.team.append(employee)
-#
-#
-# class Hr(Employee):
-#     def __init__(self, name, email, age, origin, emp_id, salary):
-#         super().__init__(name, email, age, origin, emp_id, role="HR", salary=salary)

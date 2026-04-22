@@ -1,4 +1,4 @@
-from employee import Employee
+from src.hr_system.models.employee import Employee
 from src.hr_system.utils.exceptions import ValidationError, NotFoundError
 from typing import List
 
@@ -34,26 +34,34 @@ class Department:
             self._dept_employees.remove(employee)
             print("Employee removed from department")
         else:
-            raise NotFoundError("Employee not in department")
+            raise NotFoundError("Employee not found in department")
 
     def view_department(self):
         for emp in self._dept_employees:
             print(emp)
 
     def to_dict(self):
+        # return {
+        #     "name": self._name,
+        #     "manager": self._manager.to_dict() if self._manager else None,
+        #     "dept_employees": [emp.to_dict() for emp in self._dept_employees]
+        # }
         return {
             "name": self._name,
-            "manager": self._manager,
-            "dept_employees": self._dept_employees
+            "manager": self._manager.name,
+            "dept_employees": [
+                {"name": emp.name, "email": emp.email, "role": emp.role.value}
+                for emp in self._dept_employees
+            ]
         }
 
     @classmethod
     def from_to_dict(cls, data) -> "Department":
         department = cls(
             name=data["name"],
-            manager=data["manager"],
+            manager=data["manager"]
         )
-        department._dept_employees = data["dept_employees"]
+        department._dept_employees = [Employee.from_dict_to_object(emp) for emp in data.get("dept_employees", [])]
         return department
 
     def __repr__(self):
