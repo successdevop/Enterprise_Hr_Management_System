@@ -1,7 +1,9 @@
 import json
-from typing import List
+from typing import List, Optional
 from src.hr_system.models.leave import LeaveRequest
 from src.hr_system.storage.logger import Logger
+from src.hr_system.models.employee import Employee
+from src.hr_system.utils.exceptions import NotFoundError
 
 
 class LeaveRepo:
@@ -10,7 +12,17 @@ class LeaveRepo:
         self._leave_database: List[LeaveRequest] = []
         self._load_leave_request_database()
 
-    def get_request_by_employee(self, employee):
+    def get_request_by_employee(self, employee: Employee) -> Optional[LeaveRequest]:
+        for leave_request in self._leave_database:
+            if leave_request.employee == employee:
+                return leave_request
+        raise NotFoundError(f"Employee {employee.name} not found")
+
+    def get_all_leave_request(self):
+        return self._leave_database
+
+    def get_all_pending_leave_request(self):
+        return [request for request in self._leave_database if request.status.PENDING]
 
     def save_leave_request(self, leave: LeaveRequest):
         self._leave_database.append(leave)
