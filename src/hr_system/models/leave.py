@@ -35,5 +35,23 @@ class LeaveRequest:
         self.status = LeaveStatus.REJECTED
         self.reviewed_by = {manager.name, manager.role}
 
+    def to_dict(self):
+        return {
+            "days": self.days,
+            "employee": self.employee.to_dict(show_all=False) if self.employee else None,
+            "status": self.status.value if hasattr(self.status, "value") else self.status,
+            "created_at": self.created_at
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "LeaveRequest":
+        leaverequest = cls(
+            days=data["days"],
+            employee=Employee.from_dict_to_object(data["employee"])
+        )
+        leaverequest.status = data["status"]
+        leaverequest.created_at = data["created_at"]
+        return leaverequest
+
     def __repr__(self):
         return f"<LeaveRequest name:{self.employee.name} | days_of_leave:{self.days} | status:{self.status.value}>"
