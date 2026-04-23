@@ -1,11 +1,1 @@
-{
-    "Engineering": {
-        "dept_name": "Engineering",
-        "dept_manager": {
-            "employee_id": "621b9c6b-fda7-463d-b845-eb72bebe6f17",
-            "name": "Tobi",
-            "role": "Manager"
-        },
-        "dept_employees": []
-    }
-}
+{}

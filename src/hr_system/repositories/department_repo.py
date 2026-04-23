@@ -27,6 +27,7 @@ class DepartmentRepo:
             Logger.error(f"Error saving department | {e}")
 
     def get_department_by_name(self, dept_name: str) -> Optional[Department]:
+        dept_name = dept_name.strip().title()
         return self._dept_database.get(dept_name)
 
     def get_department_by_manager(self, manager: Employee) -> Optional[Department]:
@@ -37,10 +38,14 @@ class DepartmentRepo:
 
     def delete_department(self, dept_name: str):
         if dept_name not in self._dept_database:
-            raise NotFoundError("Department not found")
+            raise NotFoundError(f"Department {dept_name} not found")
 
         del self._dept_database[dept_name]
         print(f"{dept_name} department deleted")
+        self._save_all_departments()
+
+    def delete_all_department(self):
+        self._dept_database.clear()
         self._save_all_departments()
 
     def _save_all_departments(self):
@@ -70,11 +75,21 @@ class DepartmentRepo:
 
                 if isinstance(data, dict):
                     for name, department in data.items():
+
+                        if name is None:
+                            print("Skip department with none key")
+                            continue
+
                         if isinstance(department, dict):
                             dept = Department.from_to_dict(department)
                         else:
                             dept = department
-                        self._dept_database[name] = dept
+
+                        if dept is None:
+                            continue
+
+                        normalized_name = dept.name.strip().title()
+                        self._dept_database[normalized_name] = dept
         except FileNotFoundError:
             # First run - File doesn't exist yet
             Logger.error("Database file not found, starting fresh")

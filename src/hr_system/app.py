@@ -63,9 +63,15 @@ def main():
 
     auth.login("success@gmail.com", "echezPay123@/.com")
 
-    dept_service.create_department(auth.current_user, "Engineering", emp_repo.get_by_email('TOBI@gmail.com'))
+    # dept_service.create_department(auth.current_user, "Engineering", emp_repo.get_by_email('TOBI@gmail.com'))
     # dept_service.assign_employee(auth.current_user, "Engineering", emp_repo.get_by_email("umah@gmail.com"))
     # dept_service.remove_employee(auth.current_user, "Engineering", emp_repo.get_by_email("kelechigd@gmail.com"))
+    # dept_service.delete_dept(auth.current_user, "Engineering")
+    # dept_service.view_department_employees(auth.current_user, "Engineering")
+    # dept_service.get_all_dept(auth.current_user)
+    # dept_service.get_department(auth.current_user, "Engineering")
+    # dept_service.count_department(auth.current_user)
+    dept_service.delete_all_department(auth.current_user)
     # dept_service.delete_dept(auth.current_user, "Engineering")
     # dept_service.create_department(auth.current_user, "Marketing", emp_repo.get_by_email('folak.ola@gmail.com'))
     # dept_service.assign_employee(auth.current_user, "Marketing", emp_repo.get_by_email("umah@gmail.com"))

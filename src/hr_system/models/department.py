@@ -11,7 +11,7 @@ class Department:
         if manager.role.value != "Manager":
             raise ValidationError("Department manager must have a Manager role")
 
-        self._name = name.strip().title()
+        self._name = name
         self._manager = manager
         self._dept_employees: List[Employee] = []
 

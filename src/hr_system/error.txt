@@ -1,100 +1,18 @@
-[2026-04-21 14:57:40]: Database file not found, starting fresh 
-[2026-04-21 15:07:00]: Database file not found, starting fresh 
-[2026-04-21 15:08:45]: Database file not found, starting fresh 
-[2026-04-21 15:19:48]: Login Failed: wrong password for success@gmail.com 
-[2026-04-21 15:20:50]: Login Failed: sucess@gmail.com not found 
-[2026-04-21 15:21:44]: Login Failed: Account is deactivated 
-[2026-04-21 15:23:23]: Login Failed: Account is deactivated (success@gmail.com) 
-[2026-04-22 10:07:23]: Database file not found, starting fresh 
-[2026-04-22 10:07:23]: Login Failed: succes@gmail.com not found 
-[2026-04-22 10:08:52]: Database file not found, starting fresh 
-[2026-04-22 10:16:29]: Database file not found, starting fresh 
-[2026-04-22 10:18:19]: Database file not found, starting fresh 
-[2026-04-22 10:22:39]: Database file not found, starting fresh 
-[2026-04-22 10:25:00]: Database file not found, starting fresh 
-[2026-04-22 10:26:52]: Database file not found, starting fresh 
-[2026-04-22 10:28:23]: Database file not found, starting fresh 
-[2026-04-22 10:29:23]: Database file not found, starting fresh 
-[2026-04-22 10:29:56]: Database file not found, starting fresh 
-[2026-04-22 10:30:23]: Database file not found, starting fresh 
-[2026-04-22 10:31:50]: Database file not found, starting fresh 
-[2026-04-22 10:40:23]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 10:40:23]: Database file not found, starting fresh 
-[2026-04-22 12:00:23]: Database file not found, starting fresh 
-[2026-04-22 12:01:34]: Database file not found, starting fresh 
-[2026-04-22 13:13:16]: Database file not found, starting fresh 
-[2026-04-22 13:29:10]: Database file not found, starting fresh 
-[2026-04-22 13:35:19]: Database file not found, starting fresh 
-[2026-04-22 13:41:36]: Database file not found, starting fresh 
-[2026-04-22 13:42:16]: Database file not found, starting fresh 
-[2026-04-22 13:59:45]: Database file not found, starting fresh 
-[2026-04-22 14:12:07]: Database file not found, starting fresh 
-[2026-04-22 14:14:48]: Database file not found, starting fresh 
-[2026-04-22 14:15:58]: Database file not found, starting fresh 
-[2026-04-22 14:28:01]: Database file not found, starting fresh 
-[2026-04-22 14:44:57]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 14:46:55]: Error loading database: 'str' object has no attribute 'get' 
-[2026-04-22 14:46:55]: Error saving department | Object of type Employee is not JSON serializable 
-[2026-04-22 14:47:26]: JSON decode error: Expecting value: line 6 column 13 (char 121) 
-[2026-04-22 14:47:26]: Error saving department | Object of type Employee is not JSON serializable 
-[2026-04-22 14:52:51]: JSON decode error: Expecting value: line 6 column 13 (char 121) 
-[2026-04-22 14:52:51]: Error saving department | Object of type Role is not JSON serializable 
-[2026-04-22 14:54:44]: JSON decode error: Expecting value: line 9 column 25 (char 224) 
-[2026-04-22 15:08:40]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:10:59]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:15:50]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:16:59]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:23:20]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:28:30]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:32:55]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:33:07]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:33:20]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:33:41]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:34:44]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:35:58]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:36:51]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:38:01]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:38:22]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:38:46]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:39:05]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:39:50]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:41:05]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:43:40]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:45:37]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:46:19]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:55:04]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 15:58:04]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 15:58:35]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:03:04]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:05:26]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:05:51]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:06:06]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:06:27]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:32:01]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:33:24]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 16:33:44]: Error loading database: 'dict' object has no attribute 'role' 
-[2026-04-22 19:52:08]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 19:52:27]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 19:54:06]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 19:55:25]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 19:56:34]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 19:57:50]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 19:59:48]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 20:02:02]: Error loading database: 'str' object has no attribute 'role' 
-[2026-04-22 20:51:04]: Error loading database: '' 
-[2026-04-22 20:51:37]: Error loading database: '' 
-[2026-04-22 20:57:12]: Error loading database: '' 
-[2026-04-22 21:12:56]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 21:15:00]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 21:24:04]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 21:31:10]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 21:31:31]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-22 21:33:30]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 09:44:32]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 09:50:22]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 09:57:59]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 09:59:36]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 09:59:53]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 10:03:46]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 10:08:02]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
-[2026-04-23 10:43:49]: Login Failed: wrong password for kelechigd@gmail.com 
+[2026-04-23 13:25:14]: Error loading database: 'NoneType' object has no attribute 'strip' 
+[2026-04-23 13:25:45]: Error loading database: 'NoneType' object has no attribute 'strip' 
+[2026-04-23 13:25:45]: Login Failed: success@gmail.co not found 
+[2026-04-23 13:25:57]: Error loading database: 'NoneType' object has no attribute 'strip' 
+[2026-04-23 13:25:57]: Login Failed: wrong password for success@gmail.com 
+[2026-04-23 13:31:08]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:35:26]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:35:54]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:36:37]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:37:03]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:37:46]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:38:46]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:42:20]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 13:59:36]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 14:05:42]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 14:25:56]: Error loading database: 'NoneType' object has no attribute 'lower' 
+[2026-04-23 14:34:42]: Error loading database: 'NoneType' object has no attribute 'strip' 
+[2026-04-23 14:43:11]: Error loading database: 'NoneType' object has no attribute 'strip' 

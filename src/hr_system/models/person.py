@@ -1,9 +1,9 @@
 class Person:
     def __init__(self, name: str, email: str, age: int, state_of_origin: str):
-        self._name = name.strip().title()
-        self._email = email.strip().lower()
+        self._name = name
+        self._email = email
         self._age = age
-        self._origin = state_of_origin.strip().title()
+        self._origin = state_of_origin
 
     @property
     def name(self):
