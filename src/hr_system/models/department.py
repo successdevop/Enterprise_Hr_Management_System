@@ -11,7 +11,7 @@ class Department:
         if manager.role.value != "Manager":
             raise ValidationError("Department manager must have a Manager role")
 
-        self._name = name
+        self._name = name.strip().title()
         self._manager = manager
         self._dept_employees: List[Employee] = []
 
@@ -29,15 +29,16 @@ class Department:
     def add_employee(self, employee: Employee):
         if employee in self._dept_employees:
             raise ValidationError("Employee already in the department")
+
         self._dept_employees.append(employee)
-        print("Employee added to department")
+        print(f"Employee: {employee.name} added to department")
 
     def remove_employee(self, employee: Employee):
         if employee not in self._dept_employees:
             raise NotFoundError("Employee not found")
 
         self._dept_employees.remove(employee)
-        print("Employee removed")
+        print(f"Employee: {employee.name} removed from department")
 
     def view_department(self):
         for emp in self._dept_employees:

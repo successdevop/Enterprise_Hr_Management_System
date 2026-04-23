@@ -40,7 +40,7 @@ class DepartmentRepo:
             raise NotFoundError("Department not found")
 
         del self._dept_database[dept_name]
-        print("Department deleted")
+        print(f"{dept_name} department deleted")
         self._save_all_departments()
 
     def _save_all_departments(self):

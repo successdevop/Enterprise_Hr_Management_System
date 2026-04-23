@@ -7,8 +7,9 @@ class Utils:
 
     @staticmethod
     def validate_name(name: str) -> str:
+        name = name.strip()
         if name and len(name) >= 3:
-            return name.strip().title()
+            return name
         raise ValidationError("Name value cannot be empty and must be at-least 3 characters")
 
     @staticmethod
@@ -32,7 +33,7 @@ class Utils:
             raise ValidationError("Invalid age value")
 
     @staticmethod
-    def validate_amount_input(amount) -> float | None:
+    def validate_amount_input(amount: float) -> float | None:
         """
         this function takes the user input and checks if it is an actually number
         and that the number is also not negative

@@ -16,7 +16,6 @@ class AuthService:
     def register(self, name: str, email: str, age: int, origin: str, role: Role, salary: float, password: str):
         from src.hr_system.models.employee import Employee
 
-        email = email.lower().strip()
         Utils.validate_email(email)
 
         if self._employee_repo.get_by_email(email):
@@ -49,7 +48,7 @@ class AuthService:
             raise AuthenticationError("invalid email or password")
 
         if not user.isActive:
-            Logger.error(f"Login Failed: Account is deactivated ({email})")
+            Logger.error(f"Login Failed: Account is deactivated (email:{email}, name:{user.name})")
             raise AuthenticationError("Account is deactivated")
 
         self.current_user = user
