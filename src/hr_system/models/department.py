@@ -39,41 +39,37 @@ class Department:
         self._dept_employees.remove(employee)
         print("Employee removed")
 
-        # for i, emp in enumerate(self._dept_employees):
-        #     if employee.employee_id == emp.employee_id:
-        #         self._dept_employees.pop(i)
-        #         print("Employee removed from department")
-        #
-        # raise NotFoundError("Employee not found in department")
-
     def view_department(self):
         for emp in self._dept_employees:
             print(emp)
 
     def to_dict(self):
-        # return {
-        #     "name": self._name,
-        #     "manager": self._manager.to_dict() if self._manager else None,
-        #     "dept_employees": [emp.to_dict() for emp in self._dept_employees]
-        # }
         return {
             "dept_name": self._name,
-            "dept_manager": self._manager.name,
-            "dept_employees": [
-                {"name": emp.name, "email": emp.email, "role": emp.role.value}
-                for emp in self._dept_employees
-            ]
+            "dept_manager": self._manager.to_dict(show_all=False) if self._manager else None,
+            "dept_employees": [emp.to_dict(show_all=False) for emp in self._dept_employees]
         }
 
     @classmethod
     def from_to_dict(cls, data) -> "Department":
+        # Reconstruct manager from dict
+        manager_data = data["dept_manager"]
+        manager = Employee.from_dict_to_object(manager_data)  # Assuming Employee has from_dict method
+
+        # Create department
         department = cls(
             name=data["dept_name"],
-            manager=data["dept_manager"]
+            manager=manager
         )
 
-        department._dept_employees = [object(emp.name, emp.email, emp.role) for emp in data.get("dept_employees", [])]
+        # Reconstruct employees from dicts
+        department._dept_employees = [
+            Employee.from_dict_to_object(emp_data)
+            for emp_data in data.get("dept_employees", [])
+        ]
         return department
 
     def __repr__(self):
         return f"<Department name: {self._name} | manager: {self._manager.name}>"
+
+    print()

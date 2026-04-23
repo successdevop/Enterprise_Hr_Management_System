@@ -11,18 +11,6 @@
         "password": "3e763c4d5f5017495e5876791a9a51d676431811960bbde74932434f56a7fda9",
         "onboarding_date": "2026-04-22 10:40:23"
     },
-    "tobi@gmail.com": {
-        "employee_id": "2c1a7880-3ac3-4c16-9a19-97ff12eee364",
-        "name": "Tobi",
-        "email": "tobi@gmail.com",
-        "age": 25,
-        "origin": "ogun state, Nigeria",
-        "role": "Manager",
-        "salary": 4000,
-        "isActive": true,
-        "password": "5823a3e43c2bc0d33e138dc6f258fbd2efb80d1a3e54b4b4f165883fecf0c985",
-        "onboarding_date": "2026-04-22 10:40:23"
-    },
     "umah@gmail.com": {
         "employee_id": "fce3f22a-fee2-429f-821b-190d68e04e2b",
         "name": "favour",
@@ -46,5 +34,41 @@
         "isActive": true,
         "password": "23ca1f0959c4855fa6cae3de1a517da0da00e356e36f250ee03d67a4921db98f",
         "onboarding_date": "2026-04-22 10:40:23"
+    },
+    "kelechigd@gmail.com": {
+        "employee_id": "befa0d6e-ada9-4ee8-94ef-33bffcc22f39",
+        "name": "kelechi gold",
+        "email": "kelechigd@gmail.com",
+        "age": 22,
+        "origin": "Abia state, Nigeria",
+        "role": "Employee",
+        "salary": 15000,
+        "isActive": true,
+        "password": "9ed6607ee009de85c3f4504d658ff9b65216ce1c61e0dccc1495555c6a664152",
+        "onboarding_date": "2026-04-22 20:57:12"
+    },
+    "tobi@gmail.com": {
+        "employee_id": "621b9c6b-fda7-463d-b845-eb72bebe6f17",
+        "name": "Tobi",
+        "email": "tobi@gmail.com",
+        "age": 25,
+        "origin": "ogun state, Nigeria",
+        "role": "Manager",
+        "salary": 4000,
+        "isActive": true,
+        "password": "5823a3e43c2bc0d33e138dc6f258fbd2efb80d1a3e54b4b4f165883fecf0c985",
+        "onboarding_date": "2026-04-23 09:38:18"
+    },
+    "folak.ola@gmail.com": {
+        "employee_id": "62a0059b-ee9f-4d05-933f-1104469ed525",
+        "name": "Folakemi Oladimeji",
+        "email": "folak.ola@gmail.com",
+        "age": 29,
+        "origin": "Oyo state, Nigeria",
+        "role": "Manager",
+        "salary": 8000,
+        "isActive": true,
+        "password": "dee69d284c2dc7d9a0eb17d5965070db5c3c92c1641bfadabd1d77d183b37a4f",
+        "onboarding_date": "2026-04-23 09:57:59"
     }
 }

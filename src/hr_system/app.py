@@ -43,23 +43,34 @@ def main():
     # )
     #
     # employee_4 = auth.register(
-    #     "Oluchi Raphael",
-    #     "oluchi@gmail.com",
-    #     24,
-    #     "Enugu state, Nigeria",
-    #     Role.HR,
-    #     10000,
-    #     "olu123@/.com"
+    #     "kelechi gold",
+    #     "kelechigd@gmail.com",
+    #     22,
+    #     "Abia state, Nigeria",
+    #     Role.EMPLOYEE,
+    #     15000,
+    #     "kel123@/.com"
+    # )
+    # employee_5 = auth.register(
+    #     "Folakemi Oladimeji",
+    #     "folak.ola@gmail.com",
+    #     29,
+    #     "Oyo state, Nigeria",
+    #     Role.MANAGER,
+    #     8000,
+    #     "folakiss123@/.com"
     # )
 
     auth.login("success@gmail.com", "echezPay123@/.com")
 
-    # dept_service.create_department(auth.current_user, "Engineering", emp_repo.get_by_email("TOBI@gmail.com"))
+    # dept_service.create_department(auth.current_user, "Engineering", emp_repo.get_by_email('TOBI@gmail.com'))
     # dept_service.assign_employee(auth.current_user, "Engineering", emp_repo.get_by_email("umah@gmail.com"))
-    # dept_service.remove_employee(auth.current_user, "Engineering", emp_repo.get_by_email("umah@gmail.com"))
+    # dept_service.remove_employee(auth.current_user, "Engineering", emp_repo.get_by_email("kelechigd@gmail.com"))
     # dept_service.delete_dept(auth.current_user, "Engineering")
-    print(dept_repo.get_all_dept())
-
+    # dept_service.create_department(auth.current_user, "Marketing", emp_repo.get_by_email('folak.ola@gmail.com'))
+    # dept_service.assign_employee(auth.current_user, "Marketing", emp_repo.get_by_email("umah@gmail.com"))
+    # dept_service.remove_employee(auth.current_user, "Marketing", emp_repo.get_by_email("umah@gmail.com"))
+    dept_service.delete_dept(auth.current_user, "Marketing")
 
 
 if __name__ == "__main__":

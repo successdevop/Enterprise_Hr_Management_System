@@ -81,3 +81,20 @@
 [2026-04-22 19:57:50]: Error loading database: 'str' object has no attribute 'role' 
 [2026-04-22 19:59:48]: Error loading database: 'str' object has no attribute 'role' 
 [2026-04-22 20:02:02]: Error loading database: 'str' object has no attribute 'role' 
+[2026-04-22 20:51:04]: Error loading database: '' 
+[2026-04-22 20:51:37]: Error loading database: '' 
+[2026-04-22 20:57:12]: Error loading database: '' 
+[2026-04-22 21:12:56]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-22 21:15:00]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-22 21:24:04]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-22 21:31:10]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-22 21:31:31]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-22 21:33:30]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 09:44:32]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 09:50:22]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 09:57:59]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 09:59:36]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 09:59:53]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 10:03:46]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 10:08:02]: JSON decode error: Expecting value: line 1 column 1 (char 0) 
+[2026-04-23 10:43:49]: Login Failed: wrong password for kelechigd@gmail.com 

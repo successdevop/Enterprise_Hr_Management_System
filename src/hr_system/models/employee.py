@@ -45,19 +45,26 @@ class Employee(Person):
     def deactivate(self):
         self.isActive = False
 
-    def to_dict(self) -> dict:
-        return {
-            "employee_id": self.employee_id,
-            "name": self.name,
-            "email": self.email,
-            "age": self.age,
-            "origin": self.origin,
-            "role": self.role.value if hasattr(self.role, "value") else self.role,
-            "salary": self.salary,
-            "isActive": self.isActive,
-            "password": self._password,
-            "onboarding_date": self.onboarding_date
-        }
+    def to_dict(self, show_all: bool = True) -> dict:
+        if show_all:
+            return {
+                "employee_id": self.employee_id,
+                "name": self.name,
+                "email": self.email,
+                "age": self.age,
+                "origin": self.origin,
+                "role": self.role.value if hasattr(self.role, "value") else self.role,
+                "salary": self.salary,
+                "isActive": self.isActive,
+                "password": self._password,
+                "onboarding_date": self.onboarding_date
+            }
+        else:
+            return {
+                "employee_id": self.employee_id,
+                "name": self.name,
+                "role": self.role.value if hasattr(self.role, "value") else self.role,
+            }
 
     @classmethod
     def from_dict_to_object(cls, data: dict) -> "Employee":
@@ -66,27 +73,27 @@ class Employee(Person):
         if isinstance(role, str) and hasattr(Role, role.upper()):
             role = Role[role.upper()]
 
-        employee = cls(
-            name=data.get("name"),
-            email=data.get("email"),
-            age=data.get("age"),
-            origin=data.get("origin"),
-            role=role,
-            salary=data.get("salary"),
-        )
-        employee._emp_id = data.get("employee_id")
-        employee.isActive = data.get("isActive")
-        employee._password = data.get("password")
-        employee.onboarding_date = data.get("onboarding_date")
-        return employee
+            employee = cls(
+                name=data.get("name"),
+                email=data.get("email"),
+                age=data.get("age"),
+                origin=data.get("origin"),
+                role=role,
+                salary=data.get("salary"),
+            )
+            employee._emp_id = data.get("employee_id")
+            employee.isActive = data.get("isActive")
+            employee._password = data.get("password")
+            employee.onboarding_date = data.get("onboarding_date")
+            return employee
 
     def __eq__(self, other):
         if not isinstance(other, Employee):
             return False
-        return self.email.lower() == other.email.lower()
+        return self.employee_id == other.employee_id
 
     def __hash__(self):
-        return hash(self.email.lower())
+        return hash(self.employee_id)
 
     def __repr__(self):
         return f"<Employee id: {self._emp_id} | name: {self.name} | role: {self.role.value} >"
