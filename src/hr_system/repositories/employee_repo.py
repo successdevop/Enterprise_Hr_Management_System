@@ -8,14 +8,12 @@ from typing import Dict, Optional, List
 class EmployeeRepository:
     def __init__(self, storage_file: str):
         self._json_file_database = storage_file
-        self._employees_by_id_database: Dict[str, Employee] = {}
         self._employees_by_email_database: Dict[str, Employee] = {}
         self._load_employee_database()
 
     def save_employee(self, employee: Employee):
         # Add to in-memory databases
         self._employees_by_email_database[employee.email] = employee
-        self._employees_by_id_database[employee.employee_id] = employee
 
         # Prepare data for JSON serialization
         savable_data = {
@@ -29,12 +27,6 @@ class EmployeeRepository:
         except Exception as e:
             Logger.error(f"Error saving employee: {e}")
             raise
-
-    def get_by_id(self, emp_id: str) -> Optional[Employee]:
-        employee = self._employees_by_id_database.get(emp_id)
-        if not employee:
-            raise NotFoundError(f"Employee with ID {employee.employee_id} not found")
-        return employee
 
     def get_by_email(self, email: str) -> Optional[Employee]:
         email = email.strip().lower()
@@ -54,7 +46,6 @@ class EmployeeRepository:
         """Delete an employee"""
         if employee.email in self._employees_by_email_database:
             del self._employees_by_email_database[employee.email]
-            del self._employees_by_id_database[employee.employee_id]
             self._save_all()
         else:
             raise NotFoundError(f"Employee with ID {employee.employee_id} not found")
@@ -74,7 +65,6 @@ class EmployeeRepository:
 
     def _load_employee_database(self):
         self._employees_by_email_database.clear()
-        self._employees_by_id_database.clear()
 
         try:
             with open(self._json_file_database, mode="r", encoding="utf-8") as file_reader:
@@ -86,20 +76,15 @@ class EmployeeRepository:
                             employee = Employee.from_dict_to_object(emp_obj)
                         else:
                             employee = emp_obj
-
                         self._employees_by_email_database[email] = employee
-                        self._employees_by_id_database[employee.employee_id] = employee
         except FileNotFoundError:
             # First run - file doesn't exist yet
             Logger.error(f"Database file not found, starting fresh")
             self._employees_by_email_database = {}
-            self._employees_by_id_database = {}
         except json.JSONDecodeError as e:
             # File exists but is empty or corrupted
             Logger.error(f"JSON decode error: {e}")
             self._employees_by_email_database = {}
-            self._employees_by_id_database = {}
         except Exception as e:
             Logger.error(f"Error loading database: {e}")
             self._employees_by_email_database = {}
-            self._employees_by_id_database = {}

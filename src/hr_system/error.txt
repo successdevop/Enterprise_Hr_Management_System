@@ -1,18 +1,13 @@
-[2026-04-23 13:25:14]: Error loading database: 'NoneType' object has no attribute 'strip' 
-[2026-04-23 13:25:45]: Error loading database: 'NoneType' object has no attribute 'strip' 
-[2026-04-23 13:25:45]: Login Failed: success@gmail.co not found 
-[2026-04-23 13:25:57]: Error loading database: 'NoneType' object has no attribute 'strip' 
-[2026-04-23 13:25:57]: Login Failed: wrong password for success@gmail.com 
-[2026-04-23 13:31:08]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:35:26]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:35:54]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:36:37]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:37:03]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:37:46]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:38:46]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:42:20]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 13:59:36]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 14:05:42]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 14:25:56]: Error loading database: 'NoneType' object has no attribute 'lower' 
-[2026-04-23 14:34:42]: Error loading database: 'NoneType' object has no attribute 'strip' 
-[2026-04-23 14:43:11]: Error loading database: 'NoneType' object has no attribute 'strip' 
+[2026-04-24 11:24:12]: Database file not found, starting fresh 
+[2026-04-24 11:24:12]: Database file not found, starting fresh 
+[2026-04-24 11:24:12]: Error with loading Leave Request database: [Errno 2] No such file or directory: 'leave.json' 
+[2026-04-24 11:36:25]: Database file not found, starting fresh 
+[2026-04-24 11:36:25]: Error with loading Leave Request database: [Errno 2] No such file or directory: 'leave.json' 
+[2026-04-24 11:38:50]: Database file not found, starting fresh 
+[2026-04-24 11:38:50]: Error with loading Leave Request database: [Errno 2] No such file or directory: 'leave.json' 
+[2026-04-24 11:41:13]: Database file not found, starting fresh 
+[2026-04-24 11:41:13]: Error with loading Leave Request database: [Errno 2] No such file or directory: 'leave.json' 
+[2026-04-24 11:43:46]: Database file not found, starting fresh 
+[2026-04-24 11:43:46]: Error with loading Leave Request database: [Errno 2] No such file or directory: 'leave.json' 
+[2026-04-24 11:54:14]: Database file not found, starting fresh 
+[2026-04-24 11:54:14]: Error with loading Leave Request database: [Errno 2] No such file or directory: 'leave.json' 

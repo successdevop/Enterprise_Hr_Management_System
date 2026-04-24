@@ -1,74 +1,80 @@
 {
     "success@gmail.com": {
-        "employee_id": "2a117c8d-369b-4136-ad6e-aebf4119febc",
-        "name": "Success raphael ifeanyi",
+        "employee_id": "74ff617d-2958-4600-ad66-4c4c7a119d25",
+        "name": "Success Raphael Ifeanyi",
         "email": "success@gmail.com",
         "age": 30,
-        "origin": "imo state, Nigeria",
+        "origin": "Imo State, Nigeria",
         "role": "Admin",
         "salary": 50000,
         "isActive": true,
         "password": "3e763c4d5f5017495e5876791a9a51d676431811960bbde74932434f56a7fda9",
-        "onboarding_date": "2026-04-22 10:40:23"
-    },
-    "umah@gmail.com": {
-        "employee_id": "fce3f22a-fee2-429f-821b-190d68e04e2b",
-        "name": "favour",
-        "email": "umah@gmail.com",
-        "age": 27,
-        "origin": "ebonyi, Nigeria",
-        "role": "Employee",
-        "salary": 15000,
-        "isActive": true,
-        "password": "47a334fedebb4534323c9436e05f7126d15f01960ea106981fd67fe6e9e49f1b",
-        "onboarding_date": "2026-04-22 10:40:23"
-    },
-    "oluchi@gmail.com": {
-        "employee_id": "51eaedfe-4bf6-46b4-b9cf-aafe8fafea12",
-        "name": "Oluchi Raphael",
-        "email": "oluchi@gmail.com",
-        "age": 24,
-        "origin": "Enugu state, Nigeria",
-        "role": "HR",
-        "salary": 10000,
-        "isActive": true,
-        "password": "23ca1f0959c4855fa6cae3de1a517da0da00e356e36f250ee03d67a4921db98f",
-        "onboarding_date": "2026-04-22 10:40:23"
-    },
-    "kelechigd@gmail.com": {
-        "employee_id": "befa0d6e-ada9-4ee8-94ef-33bffcc22f39",
-        "name": "kelechi gold",
-        "email": "kelechigd@gmail.com",
-        "age": 22,
-        "origin": "Abia state, Nigeria",
-        "role": "Employee",
-        "salary": 15000,
-        "isActive": true,
-        "password": "9ed6607ee009de85c3f4504d658ff9b65216ce1c61e0dccc1495555c6a664152",
-        "onboarding_date": "2026-04-22 20:57:12"
+        "department": [],
+        "onboarding_date": "2026-04-24 11:24:12"
     },
     "tobi@gmail.com": {
-        "employee_id": "621b9c6b-fda7-463d-b845-eb72bebe6f17",
+        "employee_id": "e27b5949-e80c-4ef9-9d2a-af0a38366066",
         "name": "Tobi",
         "email": "tobi@gmail.com",
         "age": 25,
-        "origin": "ogun state, Nigeria",
+        "origin": "Ogun State, Nigeria",
         "role": "Manager",
         "salary": 4000,
         "isActive": true,
         "password": "5823a3e43c2bc0d33e138dc6f258fbd2efb80d1a3e54b4b4f165883fecf0c985",
-        "onboarding_date": "2026-04-23 09:38:18"
+        "department": [],
+        "onboarding_date": "2026-04-24 11:24:12"
+    },
+    "umah@gmail.com": {
+        "employee_id": "a975e1c3-4760-4d43-b66a-4bc9ff7f41d0",
+        "name": "Favour",
+        "email": "umah@gmail.com",
+        "age": 27,
+        "origin": "Ebonyi, Nigeria",
+        "role": "Employee",
+        "salary": 15000,
+        "isActive": true,
+        "password": "47a334fedebb4534323c9436e05f7126d15f01960ea106981fd67fe6e9e49f1b",
+        "department": [],
+        "onboarding_date": "2026-04-24 11:24:12"
+    },
+    "kelechigd@gmail.com": {
+        "employee_id": "c34454b2-13dd-418d-9e58-70cb1751dbee",
+        "name": "Kelechi Gold",
+        "email": "kelechigd@gmail.com",
+        "age": 22,
+        "origin": "Abia State, Nigeria",
+        "role": "Employee",
+        "salary": 15000,
+        "isActive": true,
+        "password": "9ed6607ee009de85c3f4504d658ff9b65216ce1c61e0dccc1495555c6a664152",
+        "department": [],
+        "onboarding_date": "2026-04-24 11:24:12"
     },
     "folak.ola@gmail.com": {
-        "employee_id": "62a0059b-ee9f-4d05-933f-1104469ed525",
+        "employee_id": "33ee44f5-736d-4368-b5cc-e7ef6a905e81",
         "name": "Folakemi Oladimeji",
         "email": "folak.ola@gmail.com",
         "age": 29,
-        "origin": "Oyo state, Nigeria",
+        "origin": "Oyo State, Nigeria",
         "role": "Manager",
         "salary": 8000,
         "isActive": true,
         "password": "dee69d284c2dc7d9a0eb17d5965070db5c3c92c1641bfadabd1d77d183b37a4f",
-        "onboarding_date": "2026-04-23 09:57:59"
+        "department": [],
+        "onboarding_date": "2026-04-24 11:24:12"
+    },
+    "oluchi@gmail.com": {
+        "employee_id": "50a81dad-034f-4c3f-9df3-eb936d449e81",
+        "name": "Oluchi Raphael",
+        "email": "oluchi@gmail.com",
+        "age": 24,
+        "origin": "Enugu State, Nigeria",
+        "role": "HR",
+        "salary": 10000,
+        "isActive": true,
+        "password": "d42c5f608483efd65d5ce128ea9fe4cf57a94b382c69ea348666df5ac468a722",
+        "department": [],
+        "onboarding_date": "2026-04-24 11:24:12"
     }
 }

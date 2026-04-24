@@ -1,5 +1,6 @@
 EMPLOYEE_DATABASE_BACKUP = "Employee_data_id.json"
 EMPLOYEE_DATABASE = "Employee_data_email.json"
 DEPARTMENT_DATABASE = "department.json"
+LEAVE_DATABASE = "leave.json"
 LOGS_FILE = "log.txt"
 ERROR_LOGS = "error.txt"
