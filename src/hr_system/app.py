@@ -5,6 +5,7 @@ from services.auth_service import AuthService
 from services.department_service import DepartmentService
 from services.leave_service import LeaveServices
 from models.role import Role
+from models.leave import LeaveType
 from storage.config import EMPLOYEE_DATABASE, DEPARTMENT_DATABASE, LEAVE_DATABASE
 
 
@@ -18,7 +19,7 @@ def main():
     leave_service = LeaveServices(leave_repo)
 
     auth.login("kelechigd@gmail.com", "kel123@/.com")
-    leave_1 = leave_service.apply_for_leave(auth.current_user, 13)
+    leave_1 = leave_service.apply_for_leave(auth.current_user, 15, LeaveType.EMMERGENCY)
 
     auth.login("success@gmail.com", "echezPay123@/.com")
     leave_service.approve_leave(auth.current_user, leave_1)
@@ -26,7 +27,7 @@ def main():
     # leave_service.view_all_pending_request(auth.current_user)
     # leave_service.view_all_request(auth.current_user)
     # leave_service.view_employee_leave_request(auth.current_user, auth.get_employee_repo().get_by_email("kelechigd@gmail.com"))
-    print(leave_repo.get_all_leave_request())
+    # print(leave_repo.get_all_leave_request())
 
 if __name__ == "__main__":
     main()

@@ -11,6 +11,7 @@ class LeaveRepo:
         self._leave_json_document = leave_storage_file
         self._leave_database: List[LeaveRequest] = []
         self._load_leave_request_database()
+        print(self._leave_database)
 
     def get_request_by_employee(self, employee: Employee) -> Optional[LeaveRequest]:
         for leave_request in self._leave_database:
@@ -40,7 +41,6 @@ class LeaveRepo:
         try:
             with open(self._leave_json_document, mode="r", encoding="utf-8") as leave_reader:
                 leave_data = json.load(leave_reader)
-                print(leave_data)
 
                 if isinstance(leave_data, list):
                     for leave_request in leave_data:

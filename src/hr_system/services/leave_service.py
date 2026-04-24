@@ -12,7 +12,7 @@ class LeaveServices:
     def __init__(self, leave_repo: LeaveRepo):
         self.leave_repo = leave_repo
 
-    def apply_for_leave(self, employee: Employee, days: int):
+    def apply_for_leave(self, employee: Employee, days: int, leave_t: LeaveType):
         if employee.role.value in [Role.ADMIN, Role.HR]:
             balance = 30
         else:
@@ -21,7 +21,7 @@ class LeaveServices:
         if days > balance:
             raise ValidationError("Exceeded your approvable leave days")
 
-        leave_request = LeaveRequest(employee, days, LeaveType.value)
+        leave_request = LeaveRequest(employee, days, leave_t)
         self.leave_repo.save_leave_request(leave_request)
         Logger.info(f"{employee.employee_id} applied for {days} days of {LeaveType.ANNUAL.value} leave request", LOGS_FILE)
         return leave_request

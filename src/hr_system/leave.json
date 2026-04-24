@@ -1,11 +1,11 @@
 [
     {
-        "days": 13,
+        "days": 15,
         "total_leave_in_a_year": 21,
-        "total_leave_balance": 8,
-        "leave_type": "Annual_leave",
+        "total_leave_balance": 6,
+        "leave_type": "Emergency_leave",
         "status": "Approved",
-        "created_at": "2026-04-24 17:29:49",
+        "created_at": "2026-04-24 19:03:20",
         "employee": {
             "employee_id": "c34454b2-13dd-418d-9e58-70cb1751dbee",
             "name": "Kelechi Gold",
@@ -20,12 +20,12 @@
         ]
     },
     {
-        "days": 13,
+        "days": 15,
         "total_leave_in_a_year": 21,
-        "total_leave_balance": 8,
-        "leave_type": "Annual_leave",
+        "total_leave_balance": 6,
+        "leave_type": "Emergency_leave",
         "status": "Approved",
-        "created_at": "2026-04-24 17:29:49",
+        "created_at": "2026-04-24 19:03:20",
         "employee": {
             "employee_id": "c34454b2-13dd-418d-9e58-70cb1751dbee",
             "name": "Kelechi Gold",

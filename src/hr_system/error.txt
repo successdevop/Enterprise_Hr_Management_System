@@ -65,3 +65,8 @@
 [2026-04-24 17:18:50]: Error loading Leave_Database: 'type' 
 [2026-04-24 17:29:33]: Error loading Leave_Database: 'type' 
 [2026-04-24 17:29:49]: JSON decode error for Leave_Database: Expecting value: line 1 column 1 (char 0) 
+[2026-04-24 18:56:33]: Error loading Leave_Database: 'APPROVED' 
+[2026-04-24 18:57:57]: Error loading Leave_Database: 'APPROVED' 
+[2026-04-24 19:00:01]: Error loading Leave_Database: 'PENDING' 
+[2026-04-24 19:02:24]: Error loading Leave_Database: 'PENDING' 
+[2026-04-24 19:03:20]: Error loading Leave_Database: 'PENDING' 

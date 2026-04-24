@@ -70,6 +70,10 @@ class LeaveRequest:
 
     @classmethod
     def from_dict(cls, data: dict) -> "LeaveRequest":
+        status = data.get("status")
+        if isinstance(status, str) and hasattr(LeaveStatus, status.upper()):
+            status = Role[status.upper()]
+
         leaverequest = cls(
             days=data["days"],
             leave_type=data["leave_type"],
@@ -77,7 +81,7 @@ class LeaveRequest:
         )
         leaverequest.total_approvable_year_leave = data.get("total_leave_in_a_year")
         leaverequest.leave_balance = data.get("total_leave_balance")
-        leaverequest.status = data.get("status")
+        leaverequest.status = status
         leaverequest.reviewed_by = data.get("leave_reviewed_by", [])
         leaverequest.created_at = data.get("created_at")
         leaverequest.time_approved = data.get("time_approved")
