@@ -1,6 +1,7 @@
 import datetime
 import hashlib
 import uuid
+from typing import List
 from src.hr_system.models.person import Person
 from src.hr_system.models.role import Role
 from src.hr_system.utils.utils import Utils
@@ -15,6 +16,7 @@ class Employee(Person):
         self._salary = salary
         self.isActive = True
         self._password = None
+        self.department: List[str] = []
         self.onboarding_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def set_password(self, password):
@@ -57,6 +59,7 @@ class Employee(Person):
                 "salary": self.salary,
                 "isActive": self.isActive,
                 "password": self._password,
+                "department": self.department,
                 "onboarding_date": self.onboarding_date
             }
         else:
@@ -84,6 +87,7 @@ class Employee(Person):
             employee._emp_id = data.get("employee_id")
             employee.isActive = data.get("isActive")
             employee._password = data.get("password")
+            employee.department = data.get("department")
             employee.onboarding_date = data.get("onboarding_date")
             return employee
 
