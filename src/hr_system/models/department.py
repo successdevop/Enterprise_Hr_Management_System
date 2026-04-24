@@ -60,7 +60,7 @@ class Department:
         # Create department
         department = cls(
             name=data["dept_name"],
-            manager=manager
+            manager=manager if manager else None
         )
 
         # Reconstruct employees from dicts
@@ -72,5 +72,3 @@ class Department:
 
     def __repr__(self):
         return f"<Department name: {self._name} | manager: {self._manager.name}>"
-
-    print()

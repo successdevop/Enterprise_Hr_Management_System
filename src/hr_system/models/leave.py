@@ -34,6 +34,7 @@ class LeaveRequest:
         self.status = LeaveStatus.PENDING
         self.type = leave_type
         self.created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.time_approved = None
         self.leave_balance = self.total_approvable_year_leave - self.days
         self.reviewed_by = []
 
@@ -42,24 +43,28 @@ class LeaveRequest:
             raise ValidationError("Leave request already processed")
 
         self.status = LeaveStatus.APPROVED
-        self.reviewed_by.append({manager.name, manager.role})
+        self.reviewed_by.append({"name": manager.name, "role": manager.role.value})
 
     def reject_leave(self, manager: Employee):
         if self.status != LeaveStatus.PENDING:
             raise ValidationError("Leave request already processed")
 
         self.status = LeaveStatus.REJECTED
-        self.reviewed_by = {manager.name, manager.role}
+        self.reviewed_by.append({"name": manager.name, "role": manager.role.value})
+
+    def increase_total_leave_days(self, days):
+        self.total_approvable_year_leave += days
 
     def to_dict(self):
         return {
             "days": self.days,
             "total_leave_in_a_year": self.total_approvable_year_leave,
             "total_leave_balance": self.leave_balance,
-            "leave_type": self.type,
+            "leave_type": self.type.value,
             "status": self.status.value if hasattr(self.status, "value") else self.status,
             "created_at": self.created_at,
             "employee": self.employee.to_dict(show_all=False) if self.employee else None,
+            "time_approved": self.time_approved,
             "leave_reviewed_by": self.reviewed_by
         }
 
@@ -67,14 +72,15 @@ class LeaveRequest:
     def from_dict(cls, data: dict) -> "LeaveRequest":
         leaverequest = cls(
             days=data["days"],
-            leave_type=data["type"],
+            leave_type=data["leave_type"],
             employee=Employee.from_dict_to_object(data["employee"])
         )
-        leaverequest.total_approvable_year_leave = data["total_leave_in_a_year"]
-        leaverequest.leave_balance = data["total_leave_balance"]
-        leaverequest.status = data["status"]
-        leaverequest.created_at = data["created_at"]
-        leaverequest.reviewed_by = data["leave_reviewed_by"]
+        leaverequest.total_approvable_year_leave = data.get("total_leave_in_a_year")
+        leaverequest.leave_balance = data.get("total_leave_balance")
+        leaverequest.status = data.get("status")
+        leaverequest.reviewed_by = data.get("leave_reviewed_by", [])
+        leaverequest.created_at = data.get("created_at")
+        leaverequest.time_approved = data.get("time_approved")
         return leaverequest
 
     def __repr__(self):

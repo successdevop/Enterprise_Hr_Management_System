@@ -12,7 +12,7 @@ from src.hr_system.services.permision_service import PermissionService
 class AuthService:
     def __init__(self, employee_repo: EmployeeRepository):
         self._employee_repo = employee_repo
-        self.current_user = Optional[Employee]
+        self.current_user: Optional[Employee] = None
 
     def get_employee_repo(self):
         PermissionService.required_role(self.current_user, [Role.ADMIN])

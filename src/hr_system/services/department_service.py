@@ -70,7 +70,10 @@ class DepartmentService:
 
     def view_department_employees(self, current_user, dept_name: str):
         PermissionService.required_role(current_user, [Role.ADMIN])
-        self.__department_repo.get_department_by_name(dept_name).view_department()
+        department = self.__department_repo.get_department_by_name(dept_name)
+        if not department:
+            raise NotFoundError("Department not found")
+        department.view_department()
 
     def delete_all_department(self, current_user):
         PermissionService.required_role(current_user, [Role.ADMIN])

@@ -14,7 +14,7 @@ class LeaveRepo:
 
     def get_request_by_employee(self, employee: Employee) -> Optional[LeaveRequest]:
         for leave_request in self._leave_database:
-            if leave_request.employee == employee:
+            if leave_request.employee.employee_id == employee.employee_id:
                 return leave_request
         raise NotFoundError(f"Employee: {employee.name} has no leave request")
 
@@ -22,7 +22,7 @@ class LeaveRepo:
         return self._leave_database
 
     def get_all_pending_leave_request(self):
-        return [request for request in self._leave_database if request.status.PENDING]
+        return [request for request in self._leave_database if request.status.value == "Pending"]
 
     def save_leave_request(self, leave: LeaveRequest):
         self._leave_database.append(leave)
@@ -40,11 +40,23 @@ class LeaveRepo:
         try:
             with open(self._leave_json_document, mode="r", encoding="utf-8") as leave_reader:
                 leave_data = json.load(leave_reader)
+                print(leave_data)
 
-                for leave_request in leave_data:
-                    self._leave_database.append(leave_request.from_dict())
+                if isinstance(leave_data, list):
+                    for leave_request in leave_data:
+                        self._leave_database.append(LeaveRequest.from_dict(leave_request))
+                    return self._leave_database
+                else:
+                    return []
 
+        except FileNotFoundError:
+            # First run - file doesn't exist yet
+            Logger.error(f"Leave_Database file not found, starting fresh")
+            self._leave_database = []
+        except json.JSONDecodeError as e:
+            # File exists but is empty or corrupted
+            Logger.error(f"JSON decode error for Leave_Database: {e}")
+            self._leave_database = []
         except Exception as e:
-            print(f"Error with loading Leave Request database: {e}")
-            Logger.error(f"Error with loading Leave Request database: {e}")
+            Logger.error(f"Error loading Leave_Database: {e}")
             self._leave_database = []

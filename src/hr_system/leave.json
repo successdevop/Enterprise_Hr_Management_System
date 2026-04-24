@@ -1,12 +1,42 @@
 [
     {
         "days": 13,
+        "total_leave_in_a_year": 21,
+        "total_leave_balance": 8,
+        "leave_type": "Annual_leave",
+        "status": "Approved",
+        "created_at": "2026-04-24 17:29:49",
         "employee": {
             "employee_id": "c34454b2-13dd-418d-9e58-70cb1751dbee",
             "name": "Kelechi Gold",
             "role": "Employee"
         },
-        "status": "Pending",
-        "created_at": "2026-04-24 14:21:31"
+        "time_approved": null,
+        "leave_reviewed_by": [
+            {
+                "name": "Success Raphael Ifeanyi",
+                "role": "Admin"
+            }
+        ]
+    },
+    {
+        "days": 13,
+        "total_leave_in_a_year": 21,
+        "total_leave_balance": 8,
+        "leave_type": "Annual_leave",
+        "status": "Approved",
+        "created_at": "2026-04-24 17:29:49",
+        "employee": {
+            "employee_id": "c34454b2-13dd-418d-9e58-70cb1751dbee",
+            "name": "Kelechi Gold",
+            "role": "Employee"
+        },
+        "time_approved": null,
+        "leave_reviewed_by": [
+            {
+                "name": "Success Raphael Ifeanyi",
+                "role": "Admin"
+            }
+        ]
     }
 ]

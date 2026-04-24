@@ -21,7 +21,7 @@ class Employee(Person):
 
     def set_password(self, password):
         if password and len(password) < 8:
-            raise ValidationError("Password must be at least 6 characters long")
+            raise ValidationError("Password must be at least 8 characters long")
 
         self._password = hashlib.sha256(password.encode()).hexdigest()
 

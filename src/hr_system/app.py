@@ -20,13 +20,13 @@ def main():
     auth.login("kelechigd@gmail.com", "kel123@/.com")
     leave_1 = leave_service.apply_for_leave(auth.current_user, 13)
 
-    auth.login("success@gmail.com", password="echezPay123@/.com")
+    auth.login("success@gmail.com", "echezPay123@/.com")
     leave_service.approve_leave(auth.current_user, leave_1)
     # leave_service.reject_leave(auth.current_user, leave_1)
-    leave_service.view_all_pending_request(auth.current_user)
-    leave_service.view_all_request(auth.current_user)
-    leave_service.view_employee_leave_request(auth.current_user, auth.get_employee_repo().get_by_email("kelechigd@gmail.com"))
-
+    # leave_service.view_all_pending_request(auth.current_user)
+    # leave_service.view_all_request(auth.current_user)
+    # leave_service.view_employee_leave_request(auth.current_user, auth.get_employee_repo().get_by_email("kelechigd@gmail.com"))
+    print(leave_repo.get_all_leave_request())
 
 if __name__ == "__main__":
     main()

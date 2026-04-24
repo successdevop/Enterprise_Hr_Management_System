@@ -38,3 +38,30 @@
 [2026-04-24 14:13:15]: Error with loading Leave Request database: 'dict' object has no attribute 'from_dict' 
 [2026-04-24 14:18:35]: Error with loading Leave Request database: 'dict' object has no attribute 'from_dict' 
 [2026-04-24 14:21:31]: Error with loading Leave Request database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 15:33:37]: Leave_Database file not found, starting fresh 
+[2026-04-24 15:33:37]: Error saving Request | Object of type LeaveType is not JSON serializable 
+[2026-04-24 15:35:46]: JSON decode error for Leave_Database: Expecting value: line 6 column 23 (char 121) 
+[2026-04-24 15:37:07]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 15:37:07]: Error saving Request | Object of type set is not JSON serializable 
+[2026-04-24 15:48:46]: JSON decode error for Leave_Database: Expecting value: line 15 column 13 (char 422) 
+[2026-04-24 15:48:46]: Error saving Request | Object of type set is not JSON serializable 
+[2026-04-24 15:50:35]: JSON decode error for Leave_Database: Expecting value: line 15 column 13 (char 422) 
+[2026-04-24 15:50:35]: Error saving Request | Object of type set is not JSON serializable 
+[2026-04-24 15:57:07]: JSON decode error for Leave_Database: Expecting value: line 15 column 13 (char 422) 
+[2026-04-24 16:02:29]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 16:04:48]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 16:14:54]: Leave_Database file not found, starting fresh 
+[2026-04-24 16:18:49]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 16:19:10]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 16:24:14]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 16:34:35]: JSON decode error for Leave_Database: Expecting value: line 1 column 1 (char 0) 
+[2026-04-24 16:37:44]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 16:39:15]: JSON decode error for Leave_Database: Expecting value: line 1 column 1 (char 0) 
+[2026-04-24 16:40:48]: JSON decode error for Leave_Database: Expecting value: line 1 column 1 (char 0) 
+[2026-04-24 16:43:14]: JSON decode error for Leave_Database: Expecting value: line 1 column 1 (char 0) 
+[2026-04-24 17:00:57]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 17:05:57]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 17:10:26]: Error loading Leave_Database: 'dict' object has no attribute 'from_dict' 
+[2026-04-24 17:18:50]: Error loading Leave_Database: 'type' 
+[2026-04-24 17:29:33]: Error loading Leave_Database: 'type' 
+[2026-04-24 17:29:49]: JSON decode error for Leave_Database: Expecting value: line 1 column 1 (char 0) 
