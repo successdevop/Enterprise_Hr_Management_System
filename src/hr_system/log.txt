@@ -10,3 +10,43 @@
 [2026-04-24 11:43:46]: Login successful: success@gmail.com 
 [2026-04-24 11:54:14]: Login successful: success@gmail.com 
 [2026-04-24 11:54:14]: [Engineering department] created by Success Raphael Ifeanyi 
+[2026-04-24 13:49:42]: Login successful: success@gmail.com 
+[2026-04-24 13:49:55]: Login successful: success@gmail.com 
+[2026-04-24 13:50:14]: Login successful: success@gmail.com 
+[2026-04-24 13:50:58]: Login successful: success@gmail.com 
+[2026-04-24 13:51:12]: Login successful: success@gmail.com 
+[2026-04-24 13:51:27]: Login successful: success@gmail.com 
+[2026-04-24 13:51:50]: Login successful: success@gmail.com 
+[2026-04-24 13:52:21]: Login successful: success@gmail.com 
+[2026-04-24 13:52:54]: Login successful: success@gmail.com 
+[2026-04-24 13:53:03]: Login successful: success@gmail.com 
+[2026-04-24 13:53:35]: Login successful: success@gmail.com 
+[2026-04-24 13:53:50]: Login successful: success@gmail.com 
+[2026-04-24 13:53:50]: [Engineering department] created by Success Raphael Ifeanyi 
+[2026-04-24 13:53:56]: Login successful: success@gmail.com 
+[2026-04-24 13:54:05]: Login successful: success@gmail.com 
+[2026-04-24 13:54:41]: Login successful: success@gmail.com 
+[2026-04-24 13:55:23]: Login successful: success@gmail.com 
+[2026-04-24 13:58:21]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:02:35]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:05:49]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:05:49]: c34454b2-13dd-418d-9e58-70cb1751dbee applied for 13 days leave request 
+[2026-04-24 14:08:11]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:08:11]: c34454b2-13dd-418d-9e58-70cb1751dbee applied for 13 days leave request 
+[2026-04-24 14:08:11]: Login successful: oluchi@gmail.com 
+[2026-04-24 14:09:05]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:09:05]: c34454b2-13dd-418d-9e58-70cb1751dbee applied for 13 days leave request 
+[2026-04-24 14:09:05]: Login successful: oluchi@gmail.com 
+[2026-04-24 14:09:05]: Kelechi Gold leave request approved by HR Oluchi Raphael 
+[2026-04-24 14:13:15]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:13:15]: c34454b2-13dd-418d-9e58-70cb1751dbee applied for 13 days leave request 
+[2026-04-24 14:13:15]: Login successful: oluchi@gmail.com 
+[2026-04-24 14:13:15]: Kelechi Gold leave request approved by HR Oluchi Raphael 
+[2026-04-24 14:18:35]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:18:35]: c34454b2-13dd-418d-9e58-70cb1751dbee applied for 13 days leave request 
+[2026-04-24 14:18:35]: Login successful: oluchi@gmail.com 
+[2026-04-24 14:18:35]: Kelechi Gold leave request approved by HR Oluchi Raphael 
+[2026-04-24 14:21:31]: Login successful: kelechigd@gmail.com 
+[2026-04-24 14:21:31]: c34454b2-13dd-418d-9e58-70cb1751dbee applied for 13 days leave request 
+[2026-04-24 14:21:31]: Login successful: success@gmail.com 
+[2026-04-24 14:21:31]: Kelechi Gold leave request approved by Admin Success Raphael Ifeanyi 

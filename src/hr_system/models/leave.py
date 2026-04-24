@@ -2,6 +2,7 @@ from datetime import datetime
 from enum import Enum
 from src.hr_system.models.employee import Employee
 from src.hr_system.utils.exceptions import ValidationError
+from src.hr_system.models.employee import Role
 
 
 class LeaveStatus(Enum):
@@ -10,23 +11,38 @@ class LeaveStatus(Enum):
     REJECTED = "Rejected"
 
 
+class LeaveType(Enum):
+    ANNUAL = "Annual_leave"
+    SICK = "Sick_leave"
+    PATERNITY_MATERNITY = "Parental_leave"
+    UNPAID = "Unpaid_leave"
+    EMMERGENCY = "Emergency_leave"
+
+
 class LeaveRequest:
-    def __init__(self, employee: Employee, days: int):
+    def __init__(self, employee: Employee, days: int, leave_type: LeaveType):
         if days <= 0:
             raise ValidationError("Leave days must be greater than 0")
+
+        if employee.role.value in [Role.ADMIN, Role.HR]:
+            self.total_approvable_year_leave = 30
+        else:
+            self.total_approvable_year_leave = 21
 
         self.days = days
         self.employee = employee
         self.status = LeaveStatus.PENDING
-        self.created_at = datetime.now()
-        self.reviewed_by = None
+        self.type = leave_type
+        self.created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.leave_balance = self.total_approvable_year_leave - self.days
+        self.reviewed_by = []
 
     def approve_leave(self, manager: Employee):
         if self.status != LeaveStatus.PENDING:
             raise ValidationError("Leave request already processed")
 
         self.status = LeaveStatus.APPROVED
-        self.reviewed_by = {manager.name, manager.role}
+        self.reviewed_by.append({manager.name, manager.role})
 
     def reject_leave(self, manager: Employee):
         if self.status != LeaveStatus.PENDING:
@@ -38,19 +54,27 @@ class LeaveRequest:
     def to_dict(self):
         return {
             "days": self.days,
-            "employee": self.employee.to_dict(show_all=False) if self.employee else None,
+            "total_leave_in_a_year": self.total_approvable_year_leave,
+            "total_leave_balance": self.leave_balance,
+            "leave_type": self.type,
             "status": self.status.value if hasattr(self.status, "value") else self.status,
-            "created_at": self.created_at
+            "created_at": self.created_at,
+            "employee": self.employee.to_dict(show_all=False) if self.employee else None,
+            "leave_reviewed_by": self.reviewed_by
         }
 
     @classmethod
     def from_dict(cls, data: dict) -> "LeaveRequest":
         leaverequest = cls(
             days=data["days"],
+            leave_type=data["type"],
             employee=Employee.from_dict_to_object(data["employee"])
         )
+        leaverequest.total_approvable_year_leave = data["total_leave_in_a_year"]
+        leaverequest.leave_balance = data["total_leave_balance"]
         leaverequest.status = data["status"]
         leaverequest.created_at = data["created_at"]
+        leaverequest.reviewed_by = data["leave_reviewed_by"]
         return leaverequest
 
     def __repr__(self):
