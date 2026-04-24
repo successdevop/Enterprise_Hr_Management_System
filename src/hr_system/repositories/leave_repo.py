@@ -16,7 +16,7 @@ class LeaveRepo:
         for leave_request in self._leave_database:
             if leave_request.employee == employee:
                 return leave_request
-        raise NotFoundError(f"Employee {employee.name} not found")
+        raise NotFoundError(f"Employee: {employee.name} has no leave request")
 
     def get_all_leave_request(self):
         return self._leave_database
@@ -48,4 +48,3 @@ class LeaveRepo:
             print(f"Error with loading Leave Request database: {e}")
             Logger.error(f"Error with loading Leave Request database: {e}")
             self._leave_database = []
-
