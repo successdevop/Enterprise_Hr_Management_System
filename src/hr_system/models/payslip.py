@@ -11,5 +11,27 @@ class Payslip:
         self.bonuses = bonuses
         self.generated_at = datetime.now()
 
+    def to_dict(self) -> dict:
+        return {
+            "base_salary": self.base_salary,
+            "net_salary": self.net_salary,
+            "deductions": self.deductions,
+            "bonuses": self.bonuses,
+            "generated_at": self.generated_at,
+            "employee": self.employee.to_dict() if self.employee else None
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "Payslip":
+        payslip = cls(
+            base_salary=data.get("base_salary"),
+            net_salary=data.get("net_salary"),
+            deductions=data.get("deductions"),
+            bonuses=data.get("bonuses"),
+            employee=Employee.from_dict_to_object(data.get("employee"))
+        )
+        payslip.generated_at = data.get("generated_at")
+        return payslip
+
     def __repr__(self):
         return f"<Payslip(name: {self.employee.name} | net_salary: {self.net_salary} | role: {self.employee.role.value})>"
