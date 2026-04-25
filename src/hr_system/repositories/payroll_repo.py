@@ -1,6 +1,7 @@
 import json
-from typing import Dict
+from typing import Dict, Optional
 from src.hr_system.models.payslip import Payslip
+from src.hr_system.models.employee import Employee
 from src.hr_system.storage.logger import Logger
 
 
@@ -9,6 +10,16 @@ class PayrollRepo:
         self.payroll_json_file_storage = payroll_json_file_storage
         self._payroll_database: Dict[str, Payslip] = {}
         self._load_payroll_database()
+
+    def get_employee_payslip(self, employee: Employee) -> Optional[Employee]:
+        return self._payroll_database.get(employee.employee_id)
+
+    def get_all_payslip(self):
+        return list(self._payroll_database.values())
+
+    def view_all_payslip(self):
+        for payslip in self._payroll_database.values():
+            print(payslip)
 
     def save_payslip(self, payslip: Payslip):
         self._payroll_database[payslip.employee.employee_id] = payslip
