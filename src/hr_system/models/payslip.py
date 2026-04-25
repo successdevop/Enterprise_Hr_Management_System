@@ -3,7 +3,7 @@ from src.hr_system.models.employee import Employee
 
 
 class Payslip:
-    def __init__(self, employee: Employee, base_salary: float, net_salary: float, deductions: float, bonuses:float):
+    def __init__(self, employee: Employee, base_salary: float, net_salary: float, deductions: float, bonuses: float):
         self.employee = employee
         self.base_salary = base_salary
         self.net_salary = net_salary
