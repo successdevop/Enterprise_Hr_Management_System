@@ -14,6 +14,7 @@ class Employee(Person):
         self._emp_id = str(uuid.uuid4())
         self.role = role
         self._salary = salary
+        self.type = None
         self.isActive = True
         self._password = None
         self.department: List[str] = []
