@@ -10,7 +10,7 @@ class SalaryStrategy(ABC):
 class FullTimeStrategy(SalaryStrategy):
     def calculate(self, base_salary):
         tax = base_salary * 0.2
-        return base_salary, tax
+        return base_salary - tax, tax
 
 
 class ContractStrategy(SalaryStrategy):
