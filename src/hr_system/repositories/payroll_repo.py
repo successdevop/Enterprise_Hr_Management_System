@@ -1,6 +1,6 @@
 import json
 from typing import Dict, Optional
-from src.hr_system.models.payslip import Payslip
+from src.hr_system.models.payroll import Payslip
 from src.hr_system.models.employee import Employee
 from src.hr_system.storage.logger import Logger
 
@@ -25,7 +25,7 @@ class PayrollRepo:
         self._payroll_database[payslip.employee.employee_id] = payslip
 
         savable_data = {
-            emp_id: payslip
+            emp_id: payslip.to_dict()
             for emp_id, payslip in self._payroll_database.items()
         }
 
@@ -54,8 +54,11 @@ class PayrollRepo:
         except FileNotFoundError:
             # First run - file doesn't exist yet
             Logger.error("Payroll_database file not found, starting fresh")
+            self._payroll_database = {}
         except json.JSONDecodeError:
             # File exits but empty or corrupted
             Logger.error("JSON Decode Error for Payroll database")
+            self._payroll_database = {}
         except Exception as e:
             Logger.error(f"Error loading payroll database | {e}")
+            self._payroll_database = {}

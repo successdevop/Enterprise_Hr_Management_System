@@ -1,5 +1,5 @@
 from src.hr_system.models.employee import Employee
-from src.hr_system.models.payslip import Payslip
+from src.hr_system.models.payroll import Payslip
 from src.hr_system.models.role import Role
 from src.hr_system.utils.exceptions import NotFoundError
 from src.hr_system.repositories.payroll_repo import PayrollRepo
@@ -14,7 +14,7 @@ class PayrollService:
         self._payroll_repo = payroll_repo
 
     def process_salary(self, current_user,  employee: Employee, strategy: SalaryStrategy,
-                       net_salary: float, deductions: float = 0, bonuses: float = 0):
+                       deductions: float = 0, bonuses: float = 0):
         PermissionService.required_role(current_user, [Role.ADMIN, Role.HR])
 
         base_salary = employee.salary

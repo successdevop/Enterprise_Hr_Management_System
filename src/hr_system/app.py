@@ -1,28 +1,34 @@
 from repositories.employee_repo import EmployeeRepository
 from repositories.department_repo import DepartmentRepo
 from repositories.leave_repo import LeaveRepo
+from repositories.payroll_repo import PayrollRepo
 from services.auth_service import AuthService
 from services.department_service import DepartmentService
 from services.leave_service import LeaveServices
+from services.payroll_service import PayrollService
+from strategy.salary import ContractStrategy, FullTimeStrategy
 from models.role import Role
 from models.leave import LeaveType
-from storage.config import EMPLOYEE_DATABASE, DEPARTMENT_DATABASE, LEAVE_DATABASE
+from storage.config import EMPLOYEE_DATABASE, DEPARTMENT_DATABASE, LEAVE_DATABASE, PAYROLL_DATABASE
 
 
 def main():
     emp_repo = EmployeeRepository(EMPLOYEE_DATABASE)
-    dept_repo = DepartmentRepo(DEPARTMENT_DATABASE)
-    leave_repo = LeaveRepo(LEAVE_DATABASE)
+    # dept_repo = DepartmentRepo(DEPARTMENT_DATABASE)
+    # leave_repo = LeaveRepo(LEAVE_DATABASE)
+    payroll_repo = PayrollRepo(PAYROLL_DATABASE)
 
     auth = AuthService(emp_repo)
-    dept_service = DepartmentService(dept_repo)
-    leave_service = LeaveServices(leave_repo)
+    # dept_service = DepartmentService(dept_repo)
+    # leave_service = LeaveServices(leave_repo)
+    payroll_service = PayrollService(payroll_repo)
 
-    auth.login("kelechigd@gmail.com", "kel123@/.com")
-    leave_1 = leave_service.apply_for_leave(auth.current_user, 15, LeaveType.EMMERGENCY)
+    # auth.login("kelechigd@gmail.com", "kel123@/.com")
+    # leave_1 = leave_service.apply_for_leave(auth.current_user, 15, LeaveType.EMMERGENCY)
 
     auth.login("success@gmail.com", "echezPay123@/.com")
-    leave_service.approve_leave(auth.current_user, leave_1)
+    strategy = FullTimeStrategy()
+    payroll_service.process_salary(auth.current_user, emp_repo.get_by_email("success@gmail.com"), strategy)
     # leave_service.reject_leave(auth.current_user, leave_1)
     # leave_service.view_all_pending_request(auth.current_user)
     # leave_service.view_all_request(auth.current_user)

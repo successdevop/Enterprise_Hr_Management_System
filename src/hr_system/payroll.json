@@ -1,0 +1,14 @@
+{
+    "74ff617d-2958-4600-ad66-4c4c7a119d25": {
+        "base_salary": 50000,
+        "net_salary": 40000.0,
+        "deductions": 10000.0,
+        "bonuses": 0,
+        "generated_at": "2026-04-25 19:06:18",
+        "employee": {
+            "employee_id": "74ff617d-2958-4600-ad66-4c4c7a119d25",
+            "name": "Success Raphael Ifeanyi",
+            "role": "Admin"
+        }
+    }
+}

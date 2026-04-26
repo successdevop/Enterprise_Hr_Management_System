@@ -139,3 +139,15 @@
 [2026-04-24 19:03:20]: c34454b2-13dd-418d-9e58-70cb1751dbee applied for 15 days of Annual_leave leave request 
 [2026-04-24 19:03:20]: Login successful: success@gmail.com 
 [2026-04-24 19:03:20]: Kelechi Gold leave request approved by Admin Success Raphael Ifeanyi 
+[2026-04-25 18:31:03]: Login successful: success@gmail.com 
+[2026-04-25 18:38:21]: Login successful: success@gmail.com 
+[2026-04-25 18:38:33]: Login successful: success@gmail.com 
+[2026-04-25 18:39:04]: Login successful: success@gmail.com 
+[2026-04-25 18:39:45]: Login successful: success@gmail.com 
+[2026-04-25 18:43:32]: Login successful: success@gmail.com 
+[2026-04-25 18:46:13]: Login successful: success@gmail.com 
+[2026-04-25 18:50:28]: Login successful: success@gmail.com 
+[2026-04-25 19:03:41]: Login successful: success@gmail.com 
+[2026-04-25 19:03:41]: Payroll processed for Success Raphael Ifeanyi 
+[2026-04-25 19:06:18]: Login successful: success@gmail.com 
+[2026-04-25 19:06:18]: Payroll processed for Success Raphael Ifeanyi 

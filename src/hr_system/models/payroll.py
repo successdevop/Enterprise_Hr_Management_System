@@ -9,7 +9,7 @@ class Payslip:
         self.net_salary = net_salary
         self.deductions = deductions
         self.bonuses = bonuses
-        self.generated_at = datetime.now()
+        self.generated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def to_dict(self) -> dict:
         return {
@@ -18,7 +18,7 @@ class Payslip:
             "deductions": self.deductions,
             "bonuses": self.bonuses,
             "generated_at": self.generated_at,
-            "employee": self.employee.to_dict() if self.employee else None
+            "employee": self.employee.to_dict(show_all=False) if self.employee else None
         }
 
     @classmethod
